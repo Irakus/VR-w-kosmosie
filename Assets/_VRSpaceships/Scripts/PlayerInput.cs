@@ -15,6 +15,8 @@ public class PlayerInput : MonoBehaviour
     private const float YOKE_ROTATION_MULTIPLIER = 90.0f;
     private const float YOKE_MIDWAY_PULL = 0.48f;
     private const float YOKE_PULL_RANGE = 0.08f;
+    private const float CAMERA_HORIZONTAL_RANGE = 110.0f;
+    private const float CAMERA_VERTICAL_RANGE = 90.0f;
 
     [SerializeField] 
     private ControlMode _controlMode;
@@ -26,6 +28,9 @@ public class PlayerInput : MonoBehaviour
     private Transform _leftHandle;
 
     [SerializeField]
+    private Transform _camera;
+
+    [SerializeField]
     private Transform _yoke;
 
     private EngineAccelerator _engineAccelerator;
@@ -34,6 +39,8 @@ public class PlayerInput : MonoBehaviour
     private string LeftThrottleAxis;
     private string YokeTurn;
     private string YokePull;
+    private string CameraVerical;
+    private string CameraHorizontal;
 
     void Awake()
     {
@@ -45,6 +52,8 @@ public class PlayerInput : MonoBehaviour
                 LeftThrottleAxis = "LeftThrottle";
                 YokeTurn = "LeftAnalogHorizontal";
                 YokePull = "LeftAnalogVertical";
+                CameraHorizontal = "RightAnalogHorizontal";
+                CameraVerical = "RightAnalogVertical";
                 break;
             case ControlMode.WOLANT:
 
@@ -59,10 +68,20 @@ public class PlayerInput : MonoBehaviour
         ChangeHandlesPosition(_rightHandle, Input.GetAxis(RightThrottleAxis));
         ChangeHandlesPosition(_leftHandle, Input.GetAxis(LeftThrottleAxis));
         ChangeYokePosition(Input.GetAxis(YokeTurn), Input.GetAxis(YokePull));
+        ChangeCameraPosition(Input.GetAxis(CameraVerical), Input.GetAxis(CameraHorizontal));
         _engineAccelerator.ThrottleRightEngine(Input.GetAxis(RightThrottleAxis));
         _engineAccelerator.ThrottleLeftEngine(Input.GetAxis(LeftThrottleAxis));
         _engineAccelerator.VerticalRotationEngine(Input.GetAxis(YokePull));
         _engineAccelerator.HorizontalRotationEngine(Input.GetAxis(YokeTurn));
+
+    }
+
+    private void ChangeCameraPosition(float vertical, float horizontal)
+    {
+        if (_controlMode != ControlMode.WOLANT)
+        {
+            _camera.localRotation = Quaternion.Euler(vertical * CAMERA_VERTICAL_RANGE, horizontal * CAMERA_HORIZONTAL_RANGE, _camera.localEulerAngles.z);
+        }
     }
 
     private void ChangeHandlesPosition(Transform handle, float value)
