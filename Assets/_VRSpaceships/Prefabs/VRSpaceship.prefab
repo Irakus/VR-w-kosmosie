@@ -4000,6 +4000,7 @@ GameObject:
   - component: {fileID: 2932756879040297154}
   - component: {fileID: 8246685475905841209}
   - component: {fileID: 4291262767293383560}
+  - component: {fileID: 267746954}
   m_Layer: 0
   m_Name: VRSpaceship
   m_TagString: Untagged
@@ -4054,12 +4055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180971e09e63c8743a5169daec2a7ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftEngine: {fileID: 2092198787}
-  _rightEngine: {fileID: 1537679924}
-  _bow: {fileID: 614900460}
+  _controlMode: 0
   _rightHandle: {fileID: 2930783646930612982}
   _leftHandle: {fileID: 2930765613396046692}
-  controlMode: 0
 --- !u!54 &4291262767293383560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4076,6 +4074,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &267746954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934942505506510882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88282e1f6d3ce64ba8fc6e9e6f002b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftEngine: {fileID: 2092198787}
+  _rightEngine: {fileID: 1537679924}
+  _bow: {fileID: 614900460}
 --- !u!1 &2934960027019482930
 GameObject:
   m_ObjectHideFlags: 0
