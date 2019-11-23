@@ -4914,7 +4914,7 @@ MonoBehaviour:
   _controlMode: 0
   _rightHandle: {fileID: 1117341362171663154}
   _leftHandle: {fileID: 4603936122537259806}
-  _yoke: {fileID: 3754195777478022699}
+  _yoke: {fileID: 8850297993250282433}
 --- !u!54 &4291262767293383560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7657,7 +7657,7 @@ Transform:
   m_Children:
   - {fileID: 6830406700248835025}
   - {fileID: 1778317653294923134}
-  - {fileID: 3754195777478022699}
+  - {fileID: 8850297993250282433}
   m_Father: {fileID: 2931202097068172836}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -8600,6 +8600,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6147893246709446234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8850297993250282433}
+  m_Layer: 0
+  m_Name: YokeSteer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8850297993250282433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147893246709446234}
+  m_LocalRotation: {x: 0, y: 0, z: 0.014928169, w: 0.9998886}
+  m_LocalPosition: {x: 0.001, y: 0.0162, z: 0.457568}
+  m_LocalScale: {x: 0.9999997, y: 0.9999997, z: 1}
+  m_Children:
+  - {fileID: 3754195777478022699}
+  m_Father: {fileID: 2026154170846438089}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6224125376319621493
 GameObject:
   m_ObjectHideFlags: 0
@@ -8717,13 +8748,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7228233917018418409}
-  m_LocalRotation: {x: 0, y: 0, z: 0.014928169, w: 0.9998886}
-  m_LocalPosition: {x: 0.001, y: -0.036099, z: 0.457568}
-  m_LocalScale: {x: 0.9999997, y: 0.9999997, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0015612836, y: -0.052275725, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 460443267176856581}
-  m_Father: {fileID: 2026154170846438089}
-  m_RootOrder: 2
+  m_Father: {fileID: 8850297993250282433}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7802782633867475537
 GameObject:
