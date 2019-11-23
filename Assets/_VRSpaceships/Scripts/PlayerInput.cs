@@ -10,8 +10,8 @@ public class PlayerInput : MonoBehaviour
         WOLANT
     };
 
-    private const float MINIMAL_HANDLE_ROTATION = -50.0f;
-    private const float HANDLE_ROTATION_MULTIPLIER = 100.0f;
+    private const float MINIMAL_HANDLE_ROTATION = 60.0f;
+    private const float HANDLE_ROTATION_MULTIPLIER = -60.0f;
     private const float YOKE_ROTATION_MULTIPLIER = 90.0f;
     private const float YOKE_MIDWAY_PULL = 0.48f;
     private const float YOKE_PULL_RANGE = 0.08f;
@@ -67,7 +67,7 @@ public class PlayerInput : MonoBehaviour
 
     private void ChangeHandlesPosition(Transform handle, float value)
     {
-        handle.localRotation = Quaternion.Euler(MINIMAL_HANDLE_ROTATION + value * HANDLE_ROTATION_MULTIPLIER, handle.localEulerAngles.y, handle.localEulerAngles.z);
+        handle.localRotation = Quaternion.Euler(handle.localEulerAngles.x, handle.localEulerAngles.y, MINIMAL_HANDLE_ROTATION + value * HANDLE_ROTATION_MULTIPLIER);
     }
 
     private void ChangeYokePosition(float rotation, float pull)
