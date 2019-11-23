@@ -12,6 +12,9 @@ public class PlayerInput : MonoBehaviour
 
     private const float MINIMAL_HANDLE_ROTATION = -50.0f;
     private const float HANDLE_ROTATION_MULTIPLIER = 100.0f;
+    private const float YOKE_ROTATION_MULTIPLIER = 90.0f;
+    private const float YOKE_MIDWAY_PULL = 0.48f;
+    private const float YOKE_PULL_RANGE = 0.08f;
 
     [SerializeField] 
     private ControlMode _controlMode;
@@ -21,6 +24,9 @@ public class PlayerInput : MonoBehaviour
 
     [SerializeField]
     private Transform _leftHandle;
+
+    [SerializeField]
+    private Transform _yoke;
 
     private EngineAccelerator _engineAccelerator;
 
@@ -52,6 +58,7 @@ public class PlayerInput : MonoBehaviour
         LogAxesInfo();
         ChangeHandlesPosition(_rightHandle, Input.GetAxis(RightThrottleAxis));
         ChangeHandlesPosition(_leftHandle, Input.GetAxis(LeftThrottleAxis));
+        ChangeYokePosition(Input.GetAxis(YokeTurn), Input.GetAxis(YokePull));
         _engineAccelerator.ThrottleRightEngine(Input.GetAxis(RightThrottleAxis));
         _engineAccelerator.ThrottleLeftEngine(Input.GetAxis(LeftThrottleAxis));
         _engineAccelerator.VerticalRotationEngine(Input.GetAxis(YokePull));
@@ -61,6 +68,12 @@ public class PlayerInput : MonoBehaviour
     private void ChangeHandlesPosition(Transform handle, float value)
     {
         handle.localRotation = Quaternion.Euler(MINIMAL_HANDLE_ROTATION + value * HANDLE_ROTATION_MULTIPLIER, handle.localEulerAngles.y, handle.localEulerAngles.z);
+    }
+
+    private void ChangeYokePosition(float rotation, float pull)
+    {
+        _yoke.localRotation = Quaternion.Euler(_yoke.localEulerAngles.x, _yoke.localEulerAngles.y, rotation * YOKE_ROTATION_MULTIPLIER);
+        _yoke.localPosition = new Vector3(_yoke.localPosition.x, _yoke.localPosition.y, YOKE_MIDWAY_PULL + YOKE_PULL_RANGE * pull); 
     }
 
     private static void LogAxesInfo()
