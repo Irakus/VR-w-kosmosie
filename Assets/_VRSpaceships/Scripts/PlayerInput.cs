@@ -33,9 +33,15 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private Transform _yoke;
 
-    [SerializeField]
+    [SerializeField] 
     private GameObject _hud;
-
+    
+    [SerializeField] 
+    private Gun _gun1;
+    
+    [SerializeField] 
+    private Gun _gun2;
+    
     private EngineAccelerator _engineAccelerator;
 
     private string RightThrottleAxis;
@@ -44,6 +50,9 @@ public class PlayerInput : MonoBehaviour
     private string YokePull;
     private string CameraVerical;
     private string CameraHorizontal;
+    [SerializeField] private AudioSource _leftThrusterAudioSource;
+    [SerializeField] private AudioSource _rightThrusterAudioSource;
+
 
     void Awake()
     {
@@ -69,6 +78,16 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         HUDControls();
+        GunControls();
+    }
+
+    private void GunControls()
+    {
+        if (Input.GetKey(KeyCode.Joystick1Button2))
+        {
+            _gun1.Fire();
+            _gun2.Fire();
+        }
     }
 
     private void HUDControls()
@@ -90,6 +109,8 @@ public class PlayerInput : MonoBehaviour
         _engineAccelerator.ThrottleLeftEngine(Input.GetAxis(LeftThrottleAxis));
         _engineAccelerator.VerticalRotationEngine(Input.GetAxis(YokePull));
         _engineAccelerator.HorizontalRotationEngine(Input.GetAxis(YokeTurn));
+        _rightThrusterAudioSource.volume = 0.5f + Input.GetAxis(RightThrottleAxis) * 2f;
+        _leftThrusterAudioSource.volume = 0.5f + Input.GetAxis(LeftThrottleAxis) * 2f;
     }
 
     private void ChangeCameraPosition(float vertical, float horizontal)
