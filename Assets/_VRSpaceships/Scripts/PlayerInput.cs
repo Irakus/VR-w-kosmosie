@@ -33,6 +33,9 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private Transform _yoke;
 
+    [SerializeField]
+    private GameObject _hud;
+
     private EngineAccelerator _engineAccelerator;
 
     private string RightThrottleAxis;
@@ -62,6 +65,20 @@ public class PlayerInput : MonoBehaviour
                 break;
         }
     }
+
+    void Update()
+    {
+        HUDControls();
+    }
+
+    private void HUDControls()
+    {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        {
+            _hud.SetActive(!_hud.activeSelf);
+        }
+    }
+
     void FixedUpdate()
     {
         LogAxesInfo();
@@ -73,7 +90,6 @@ public class PlayerInput : MonoBehaviour
         _engineAccelerator.ThrottleLeftEngine(Input.GetAxis(LeftThrottleAxis));
         _engineAccelerator.VerticalRotationEngine(Input.GetAxis(YokePull));
         _engineAccelerator.HorizontalRotationEngine(Input.GetAxis(YokeTurn));
-
     }
 
     private void ChangeCameraPosition(float vertical, float horizontal)
