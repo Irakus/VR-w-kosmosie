@@ -50,6 +50,7 @@ public class PlayerInput : MonoBehaviour
     private string YokePull;
     private string CameraVerical;
     private string CameraHorizontal;
+    private string Fire;
     [SerializeField] private AudioSource _leftThrusterAudioSource;
     [SerializeField] private AudioSource _rightThrusterAudioSource;
 
@@ -66,6 +67,7 @@ public class PlayerInput : MonoBehaviour
                 YokePull = "LeftAnalogVertical";
                 CameraHorizontal = "RightAnalogHorizontal";
                 CameraVerical = "RightAnalogVertical";
+                Fire = "Fire1";
                 break;
             case ControlMode.WOLANT:
                 RightThrottleAxis = "RightThrottleYoke";
@@ -74,6 +76,7 @@ public class PlayerInput : MonoBehaviour
                 YokePull = "YokePull";
                 CameraHorizontal = "RightAnalogHorizontal";
                 CameraVerical = "RightAnalogVertical";
+                Fire = "FireYoke";
                 break;
             default:
                 break;
@@ -93,7 +96,7 @@ public class PlayerInput : MonoBehaviour
 
     private void GunControls()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton(Fire))
         {
             _gun1.Fire();
             _gun2.Fire();
