@@ -102,7 +102,7 @@ public class PlayerInput : MonoBehaviour
 
     private void HUDControls()
     {
-        if (Input.GetButton("Fire2") && _controlMode == ControlMode.GAMEPAD)
+        if (Input.GetButtonDown("HUDhide") && _controlMode == ControlMode.GAMEPAD)
         {
             _hud.SetActive(!_hud.activeSelf);
         }

@@ -37,7 +37,8 @@ public class Gun : MonoBehaviour
     {
         if (_temperature < 1f && _cooldownTimer <= 0.0f)
         {
-            GameObject.Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.Euler(90, 0, 0), null);
+            var bullet = GameObject.Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.Euler(90, 0, 0), null);
+            bullet.transform.position += transform.forward * 5;
             _cooldownTimer = firingCooldown;
             _temperature += temperatureGain;
             _audioSource.pitch = Mathf.Lerp(0.8f, 1f, _temperature);
