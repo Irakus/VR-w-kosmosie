@@ -68,10 +68,20 @@ public class PlayerInput : MonoBehaviour
                 CameraVerical = "RightAnalogVertical";
                 break;
             case ControlMode.WOLANT:
-
+                RightThrottleAxis = "RightThrottleYoke";
+                LeftThrottleAxis = "LeftThrottleYoke";
+                YokeTurn = "YokeTurn";
+                YokePull = "YokePull";
+                CameraHorizontal = "RightAnalogHorizontal";
+                CameraVerical = "RightAnalogVertical";
                 break;
             default:
                 break;
+        }
+
+        if (_controlMode == ControlMode.WOLANT)
+        {
+            _hud.SetActive(false);
         }
     }
 
@@ -83,7 +93,7 @@ public class PlayerInput : MonoBehaviour
 
     private void GunControls()
     {
-        if (Input.GetKey(KeyCode.Joystick1Button2))
+        if (Input.GetButton("Fire1"))
         {
             _gun1.Fire();
             _gun2.Fire();
@@ -92,7 +102,7 @@ public class PlayerInput : MonoBehaviour
 
     private void HUDControls()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        if (Input.GetButton("Fire2") && _controlMode == ControlMode.GAMEPAD)
         {
             _hud.SetActive(!_hud.activeSelf);
         }
@@ -101,12 +111,29 @@ public class PlayerInput : MonoBehaviour
     void FixedUpdate()
     {
         LogAxesInfo();
-        ChangeHandlesPosition(_rightHandle, Input.GetAxis(RightThrottleAxis));
-        ChangeHandlesPosition(_leftHandle, Input.GetAxis(LeftThrottleAxis));
+        if (_controlMode == ControlMode.GAMEPAD)
+        {
+            ChangeHandlesPosition(_rightHandle, Input.GetAxis(RightThrottleAxis));
+            ChangeHandlesPosition(_leftHandle, Input.GetAxis(LeftThrottleAxis));
+        }
+        else
+        {
+            ChangeHandlesPosition(_rightHandle, ((Input.GetAxis(RightThrottleAxis) + 1) / 2));
+            ChangeHandlesPosition(_leftHandle, ((Input.GetAxis(LeftThrottleAxis) + 1) / 2));
+        }
+        
         ChangeYokePosition(Input.GetAxis(YokeTurn), Input.GetAxis(YokePull));
         ChangeCameraPosition(Input.GetAxis(CameraVerical), Input.GetAxis(CameraHorizontal));
-        _engineAccelerator.ThrottleRightEngine(Input.GetAxis(RightThrottleAxis));
-        _engineAccelerator.ThrottleLeftEngine(Input.GetAxis(LeftThrottleAxis));
+        if(_controlMode == ControlMode.GAMEPAD)
+        {
+            _engineAccelerator.ThrottleRightEngine(Input.GetAxis(RightThrottleAxis));
+            _engineAccelerator.ThrottleLeftEngine(Input.GetAxis(LeftThrottleAxis));
+        }
+        else
+        {
+            _engineAccelerator.ThrottleRightEngine(((Input.GetAxis(RightThrottleAxis) + 1) / 2));
+            _engineAccelerator.ThrottleLeftEngine(((Input.GetAxis(LeftThrottleAxis) + 1) / 2));
+        }
         _engineAccelerator.VerticalRotationEngine(Input.GetAxis(YokePull));
         _engineAccelerator.HorizontalRotationEngine(Input.GetAxis(YokeTurn));
         _rightThrusterAudioSource.volume = 0.5f + Input.GetAxis(RightThrottleAxis) * 2f;
@@ -132,11 +159,22 @@ public class PlayerInput : MonoBehaviour
         _yoke.localPosition = new Vector3(_yoke.localPosition.x, _yoke.localPosition.y, YOKE_MIDWAY_PULL + YOKE_PULL_RANGE * pull); 
     }
 
-    private static void LogAxesInfo()
+    private void LogAxesInfo()
     {
-        Debug.Log("RightThrottle is " + Input.GetAxis("RightThrottle"));
-        Debug.Log("LeftThrottle is " + Input.GetAxis("LeftThrottle"));
-        Debug.Log("LeftAnalogVertical is " + Input.GetAxis("LeftAnalogVertical"));
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        if (Debug.isDebugBuild)
+        {
+            //            Debug.Log("RightThrottle is " + Input.GetAxis("RightThrottle"));
+            //            Debug.Log("LeftThrottle is " + Input.GetAxis("LeftThrottle"));
+            //            Debug.Log("LeftAnalogVertical is " + Input.GetAxis("LeftAnalogVertical"));
+            Debug.Log(Input.GetAxis(RightThrottleAxis) + " " 
+                                                       + Input.GetAxis(LeftThrottleAxis) + " " 
+                                                       + Input.GetAxis(YokeTurn) + " " 
+                                                       + Input.GetAxis(YokePull) );
+        }
     }
 
 }
