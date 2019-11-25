@@ -41,7 +41,10 @@ public class PlayerInput : MonoBehaviour
     
     [SerializeField] 
     private Gun _gun2;
-    
+
+    [SerializeField]
+    private Transform _redButton;
+
     private EngineAccelerator _engineAccelerator;
 
     private string RightThrottleAxis;
@@ -100,6 +103,11 @@ public class PlayerInput : MonoBehaviour
         {
             _gun1.Fire();
             _gun2.Fire();
+            _redButton.localPosition = new Vector3(0.08543f,0.12449f,-0.00106f);
+        }
+        else
+        {
+            _redButton.localPosition = new Vector3(0.08506003f, 0.12525f, -0.00272f);
         }
     }
 

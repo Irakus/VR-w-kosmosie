@@ -228,18 +228,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47450220}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &51369701 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 51369701, guid: def87279c625c3e49a8e23a3867de4d8,
-    type: 3}
-  m_PrefabInstance: {fileID: 457851829250383405}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02e364c36f364d408aa7de23adf8992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &69309697
 GameObject:
   m_ObjectHideFlags: 0
@@ -5568,64 +5556,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246685475905841209, guid: def87279c625c3e49a8e23a3867de4d8,
-        type: 3}
-      propertyPath: _controlMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7308212904696492184, guid: def87279c625c3e49a8e23a3867de4d8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932946220410210858, guid: def87279c625c3e49a8e23a3867de4d8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932946220410210858, guid: def87279c625c3e49a8e23a3867de4d8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.043
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932716165570635184, guid: def87279c625c3e49a8e23a3867de4d8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2932716165570635184, guid: def87279c625c3e49a8e23a3867de4d8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.043
-      objectReference: {fileID: 0}
-    - target: {fileID: 855891933, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: temperatureCooling
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 855891933, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: temperatureGain
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 855891933, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: firingCooldown
-      value: 0.115
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357307057, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: temperatureGain
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357307057, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: temperatureCooling
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1357307057, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: temperatureArrow
-      value: 
-      objectReference: {fileID: 51369701}
-    - target: {fileID: 1357307057, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: firingCooldown
-      value: 0.115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
