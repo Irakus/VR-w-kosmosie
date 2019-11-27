@@ -6204,9 +6204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180971e09e63c8743a5169daec2a7ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlMode: 0
+  _controlMode: 1
   _rightHandle: {fileID: 1117341362171663154}
   _leftHandle: {fileID: 4603936122537259806}
+  _thirdHandle: {fileID: 4098486673783192867}
   _camera: {fileID: 2644803846393466004}
   _yoke: {fileID: 8850297993250282433}
   _hud: {fileID: 579403319126545587}

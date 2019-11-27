@@ -28,6 +28,9 @@ public class PlayerInput : MonoBehaviour
     private Transform _leftHandle;
 
     [SerializeField]
+    private Transform _thirdHandle;
+    
+    [SerializeField]
     private Transform _camera;
 
     [SerializeField]
@@ -54,6 +57,7 @@ public class PlayerInput : MonoBehaviour
     private string CameraVerical;
     private string CameraHorizontal;
     private string Fire;
+    private string ThirdLever;
     [SerializeField] private AudioSource _leftThrusterAudioSource;
     [SerializeField] private AudioSource _rightThrusterAudioSource;
 
@@ -71,6 +75,7 @@ public class PlayerInput : MonoBehaviour
                 CameraHorizontal = "RightAnalogHorizontal";
                 CameraVerical = "RightAnalogVertical";
                 Fire = "Fire1";
+                ThirdLever = "ThirdLever";
                 break;
             case ControlMode.WOLANT:
                 RightThrottleAxis = "RightThrottleYoke";
@@ -80,6 +85,7 @@ public class PlayerInput : MonoBehaviour
                 CameraHorizontal = "RightAnalogHorizontal";
                 CameraVerical = "RightAnalogVertical";
                 Fire = "FireYoke";
+                ThirdLever = "ThirdLever";
                 break;
             default:
                 break;
@@ -131,6 +137,7 @@ public class PlayerInput : MonoBehaviour
         {
             ChangeHandlesPosition(_rightHandle, ((Input.GetAxis(RightThrottleAxis) + 1) / 2));
             ChangeHandlesPosition(_leftHandle, ((Input.GetAxis(LeftThrottleAxis) + 1) / 2));
+            ChangeHandlesPosition(_thirdHandle, ((Input.GetAxis(ThirdLever) + 1) / 2));
         }
         
         ChangeYokePosition(Input.GetAxis(YokeTurn), Input.GetAxis(YokePull));
