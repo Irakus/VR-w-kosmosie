@@ -10,14 +10,13 @@ public class PlayerInput : MonoBehaviour
         WOLANT
     };
 
+    [SerializeField] public static ControlMode _controlMode;
 
-
-    [SerializeField] 
-    public static ControlMode _controlMode;
-
-
-
-    
+    public static void SetControlMode(ControlMode controlMode)
+    {
+        _controlMode = controlMode;
+        AxesDefinitions.ChangeController(controlMode);
+    }
 
     [SerializeField] 
     private GameObject _hud;
@@ -33,9 +32,23 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private AudioSource _leftThrusterAudioSource;
     [SerializeField] private AudioSource _rightThrusterAudioSource;
 
+    private Visualiser _controllerVisualiser;
+
 
     void Awake()
     {
+        if (_controlMode == ControlMode.GAMEPAD)
+        {
+            _controllerVisualiser = GetComponent<GamePadVisualiser>();
+        }
+        else
+        {
+            _controllerVisualiser = GetComponent<ControllerVisualiser>();
+        }
+
+        _controllerVisualiser.AdjustControls();
+        
+
         _engineAccelerator = GetComponent<EngineAccelerator>();
         
         AxesDefinitions.ChangeController(_controlMode);
@@ -45,7 +58,7 @@ public class PlayerInput : MonoBehaviour
             _hud.SetActive(false);
         }
     }
-
+    
     void Update()
     {
         HUDControls();
@@ -58,12 +71,10 @@ public class PlayerInput : MonoBehaviour
         {
             _gun1.Fire();
             _gun2.Fire();
-            _redButton.localPosition = new Vector3(0.08543f,0.12449f,-0.00106f);
+            GetComponent<UserHUD>().ShowHP((int)Random.Range(0.0f,100.0f));
         }
-        else
-        {
-            _redButton.localPosition = new Vector3(0.08506003f, 0.12525f, -0.00272f);
-        }
+
+        _controllerVisualiser.ChangeButtonPosition();
     }
 
     private void HUDControls()
@@ -77,9 +88,9 @@ public class PlayerInput : MonoBehaviour
     void FixedUpdate()
     {
         LogAxesInfo();
-        ControllerVisualiser.ChangeHandlesPosition();
-        ControllerVisualiser.ChangeYokePosition();
-        ControllerVisualiser.ChangeCameraPosition();
+        _controllerVisualiser.ChangeHandlesPosition();
+        _controllerVisualiser.ChangeYokePosition();
+        _controllerVisualiser.ChangeCameraPosition();
 
         if(_controlMode == ControlMode.GAMEPAD)
         {

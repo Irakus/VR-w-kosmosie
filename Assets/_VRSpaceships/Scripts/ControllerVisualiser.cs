@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerVisualiser : MonoBehaviour
+public class ControllerVisualiser : Visualiser
 {
     private const float MINIMAL_HANDLE_ROTATION = 60.0f;
     private const float HANDLE_ROTATION_MULTIPLIER = -60.0f;
@@ -13,55 +13,67 @@ public class ControllerVisualiser : MonoBehaviour
     private const float CAMERA_VERTICAL_RANGE = 90.0f;
 
     [SerializeField]
-    private static Transform _rightHandle;
+    private Transform _rightHandle;
 
     [SerializeField]
-    private static Transform _leftHandle;
+    private Transform _leftHandle;
 
     [SerializeField]
-    private static Transform _camera;
-    [SerializeField]
-    private static Transform _redButton;
+    private Transform _thirdHandle;
 
     [SerializeField]
-    private static Transform _yoke;
+    private Transform _redButton;
 
-
-    public static void ChangeHandlesPosition()
+    [SerializeField]
+    private Transform _yoke;
+    public override void ChangeHandlesPosition()
     {
-        if (PlayerInput._controlMode == PlayerInput.ControlMode.GAMEPAD)
-        {
-            ChangeHandlePosition(_rightHandle, Input.GetAxis(AxesDefinitions.RightThrottleAxis));
-            ChangeHandlePosition(_leftHandle, Input.GetAxis(AxesDefinitions.LeftThrottleAxis));
-        }
-        else
-        {
-            ChangeHandlePosition(_rightHandle, ((Input.GetAxis(AxesDefinitions.RightThrottleAxis) + 1) / 2));
-            ChangeHandlePosition(_leftHandle, ((Input.GetAxis(AxesDefinitions.LeftThrottleAxis) + 1) / 2));
-        }
+        ChangeHandlePosition(_rightHandle, ((Input.GetAxis(AxesDefinitions.RightThrottleAxis) + 1) / 2));
+        ChangeHandlePosition(_leftHandle, ((Input.GetAxis(AxesDefinitions.LeftThrottleAxis) + 1) / 2));
+        ChangeHandlePosition(_thirdHandle, ((Input.GetAxis(AxesDefinitions.ThirdHandleAxis) + 1) / 2));
     }
-    private static void ChangeHandlePosition(Transform handle, float value)
+    private void ChangeHandlePosition(Transform handle, float value)
     {
         handle.localRotation = Quaternion.Euler(handle.localEulerAngles.x, handle.localEulerAngles.y, MINIMAL_HANDLE_ROTATION + value * HANDLE_ROTATION_MULTIPLIER);
     }
-
-    public static void ChangeYokePosition()
+    public override void ChangeYokePosition()
     {
         float rotation = Input.GetAxis(AxesDefinitions.YokeTurn);
         float pull = Input.GetAxis(AxesDefinitions.YokePull);
         _yoke.localRotation = Quaternion.Euler(_yoke.localEulerAngles.x, _yoke.localEulerAngles.y, rotation * YOKE_ROTATION_MULTIPLIER);
         _yoke.localPosition = new Vector3(_yoke.localPosition.x, _yoke.localPosition.y, YOKE_MIDWAY_PULL + YOKE_PULL_RANGE * pull);
     }
-
-    public static void ChangeCameraPosition()
+    public override void ChangeCameraPosition()
     {
-        if (PlayerInput._controlMode == PlayerInput.ControlMode.GAMEPAD)
+        
+    }
+    public override void ChangeButtonPosition()
+    {
+        if (Input.GetButton(AxesDefinitions.Fire))
         {
-            float vertical = Input.GetAxis(AxesDefinitions.CameraVerical);
-            float horizontal = Input.GetAxis(AxesDefinitions.CameraHorizontal);
-            _camera.localRotation = Quaternion.Euler(vertical * CAMERA_VERTICAL_RANGE, horizontal * CAMERA_HORIZONTAL_RANGE, _camera.localEulerAngles.z);
+            _redButton.localPosition = new Vector3(0.08543f, 0.12449f, -0.00106f);
+        }
+        else
+        {
+            _redButton.localPosition = new Vector3(0.08506003f, 0.12525f, -0.00272f);
         }
     }
 
-    public static void ChangeButtonPosition
+
+    [SerializeField] protected GameObject Yoke;
+    [SerializeField] protected GameObject Pad;
+
+    public override void AdjustControls()
+    {
+        if (PlayerInput._controlMode == PlayerInput.ControlMode.GAMEPAD)
+        {
+            Pad.SetActive(true);
+            Yoke.SetActive(false);
+        }
+        else
+        {
+            Pad.SetActive(false);
+            Yoke.SetActive(true);
+        }
+    }
 }
