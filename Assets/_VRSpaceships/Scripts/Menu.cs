@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonsFuncs : MonoBehaviour
+public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
+
     public void WolantButton()
     {
         PlayerInput.SetControlMode(PlayerInput.ControlMode.WOLANT);
