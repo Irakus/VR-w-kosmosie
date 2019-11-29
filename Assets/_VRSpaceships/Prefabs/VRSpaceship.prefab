@@ -2069,8 +2069,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.8705883, g: 0.6117647, b: 0.039215688, a: 1}
-  m_Intensity: 1.25
-  m_Range: 10
+  m_Intensity: 0
+  m_Range: 1.97
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6227,6 +6227,8 @@ MonoBehaviour:
   _leftEngine: {fileID: 2092198787}
   _rightEngine: {fileID: 1537679924}
   _bow: {fileID: 614900460}
+  _rightThuster: {fileID: 2935697465990439412}
+  _leftThuster: {fileID: 2935697465743642142}
 --- !u!114 &1545033651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8791,8 +8793,8 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.8705883, g: 0.6117647, b: 0.039215688, a: 1}
-  m_Intensity: 2.5
-  m_Range: 20
+  m_Intensity: 0
+  m_Range: 1.97
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
