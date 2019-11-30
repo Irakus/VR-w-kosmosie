@@ -8,7 +8,6 @@ public class EngineAccelerator : MonoBehaviour
     private const float MINIMAL_ENGINE_THROTTLE = 0.0f;
     private const float ENGINE_THROTTLE = 500.0f;
     private const float ROTATION_MULTIPLIER = 100.0f;
-    private const float THRUSTER_INTENSITY = 20.0f;
 
     [SerializeField]
     private Transform _leftEngine;
@@ -20,11 +19,11 @@ public class EngineAccelerator : MonoBehaviour
     private Transform _bow;
     private Rigidbody _rigidbody;
 
-    [SerializeField] private Light _rightThuster;
-    [SerializeField] private Light _leftThuster;
+    private EngineVisualiser _engineVisualiser;
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _engineVisualiser = GetComponent<EngineVisualiser>();
     }
 
     private void Update()
@@ -34,13 +33,13 @@ public class EngineAccelerator : MonoBehaviour
     public void ThrottleLeftEngine(float value)
     {
         ApplyForceToEngine(_leftEngine,value);
-        _leftThuster.intensity = value * THRUSTER_INTENSITY;
+        _engineVisualiser.VisualiseEngine(EngineVisualiser.Engine.Left, value);
     }
 
     public void ThrottleRightEngine(float value)
     {
         ApplyForceToEngine(_rightEngine, value);
-        _rightThuster.intensity = value * THRUSTER_INTENSITY;
+        _engineVisualiser.VisualiseEngine(EngineVisualiser.Engine.Right,value);
     }
     private void ApplyForceToEngine(Transform engine, float value)
     {
