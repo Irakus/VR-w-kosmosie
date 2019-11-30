@@ -11,43 +11,27 @@ public class RaceRing : MonoBehaviour
     private GameObject Exit;
     [SerializeField]
     private bool _validEntry;
-    private void OnTriggerEnter(Collider other)
+
+    
+    void OnTriggerExit(Collider other)
     {
-        if (this.name == "Enter")
+        //Debug.Log("Exit");
+        RaycastHit hit;
+        if (Debug.isDebugBuild)
         {
-            _validEntry = true;
+            Debug.DrawRay(other.gameObject.transform.position, other.gameObject.transform.forward * 100.0f, Color.red,10.0f);
         }
-        else if (this.name == "Exit")
+
+        int layerMask = LayerMask.GetMask("RingExit");
+        if (Physics.Raycast(other.attachedRigidbody.transform.position, other.attachedRigidbody.transform.forward, out hit, 10.0f,
+        layerMask))
         {
-            if (!_validEntry)
+            Debug.Log(hit.collider.name+ " "+ Exit.transform.name);
+            if (hit.collider.name == Exit.transform.name)
             {
-                Enter.SetActive(false);
-                Exit.SetActive(false);
+                _validEntry = true;
+                GetComponent<RingActivator>().DeactivateRing();
             }
-            else
-            {
-                ReportValidRing();
-            }
-        }
-
-    }
-
-    private void ReportValidRing()
-    {
-
-        Debug.Log("Reported");
-    }
-
-    // Update is called once per frame
-    private void OnTriggerExit(Collider other)
-    {
-        if (this.name == "Enter")
-        {
-            Exit.SetActive(true);
-        }
-        else if (this.name == "Exit")
-        {
-            Enter.SetActive(true);
         }
 
     }

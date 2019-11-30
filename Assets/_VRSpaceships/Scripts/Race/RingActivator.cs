@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class RingActivator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool _activatedRing = true;
+
+    [SerializeField]
+    private GameObject _ringLights;
+    public void ActivateRing()
     {
-        
+        _activatedRing = true;
+        _ringLights.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DeactivateRing()
     {
-        
+        _activatedRing = false;
+        _ringLights.SetActive(false);
     }
 }
