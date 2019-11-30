@@ -71,7 +71,6 @@ public class PlayerInput : MonoBehaviour
         {
             _gun1.Fire();
             _gun2.Fire();
-            GetComponent<UserHUD>().ShowHP((int)Random.Range(0.0f,100.0f));
         }
 
         _controllerVisualiser.ChangeButtonPosition();
