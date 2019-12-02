@@ -15,7 +15,6 @@ public class Menu : MonoBehaviour
         PlayerInput.SetControlMode(PlayerInput.ControlMode.WOLANT);
         ControlButtons.SetActive(false);
         ModeButtons.SetActive(true);
-        FindObjectOfType<EventSystem>().SetSelectedGameObject(ModeButtons.GetComponentInChildren<Button>().gameObject);
     }
 
     public void GamepadButton()
@@ -23,7 +22,6 @@ public class Menu : MonoBehaviour
         PlayerInput.SetControlMode(PlayerInput.ControlMode.GAMEPAD);
         ControlButtons.SetActive(false);
         ModeButtons.SetActive(true);
-        FindObjectOfType<EventSystem>().SetSelectedGameObject(ModeButtons.GetComponentInChildren<Button>().gameObject);
     }
 
     public void RaceMode()
