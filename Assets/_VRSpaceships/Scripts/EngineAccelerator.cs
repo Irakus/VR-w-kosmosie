@@ -9,6 +9,8 @@ public class EngineAccelerator : MonoBehaviour
     private const float ENGINE_THROTTLE = 500.0f;
     private const float ROTATION_MULTIPLIER = 100.0f;
 
+    private bool _enginesWorking;
+
     [SerializeField]
     private Transform _leftEngine;
 
@@ -43,6 +45,7 @@ public class EngineAccelerator : MonoBehaviour
     }
     private void ApplyForceToEngine(Transform engine, float value)
     {
+        if (!_enginesWorking) return;
         float forceStrength = CalculateThrottleStrength(value);
         Vector3 forward = transform.forward;
         _rigidbody.AddForceAtPosition(forward.normalized * forceStrength, engine.position, ForceMode.Force);
@@ -53,13 +56,25 @@ public class EngineAccelerator : MonoBehaviour
     }
     public void VerticalRotationEngine(float value)
     {
+        if (!_enginesWorking) return;
         float verticalRotationStrength = ROTATION_MULTIPLIER * value;
         _rigidbody.AddForceAtPosition(transform.up.normalized * verticalRotationStrength, _bow.position, ForceMode.Force);
     }
     public void HorizontalRotationEngine(float value)
     {
+        if (!_enginesWorking) return;
         float horizontalRotationStrength = ROTATION_MULTIPLIER * value;
         _rigidbody.AddForceAtPosition(transform.up * horizontalRotationStrength, _leftEngine.position, ForceMode.Force);
         _rigidbody.AddForceAtPosition(-transform.up * horizontalRotationStrength, _rightEngine.position, ForceMode.Force);
+    }
+
+    public void TurnOnEngines()
+    {
+        _enginesWorking = true;
+    }
+
+    public void TurnOffEngines()
+    {
+        _enginesWorking = false;
     }
 }
