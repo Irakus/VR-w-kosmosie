@@ -19,7 +19,7 @@ public class RingEntryDetector : MonoBehaviour
     
     void OnTriggerExit(Collider other)
     {
-        if (!_raceRing.IsActivated())
+        if (!_raceRing.IsActivated() || other.attachedRigidbody == null)
         {
             return;
         }

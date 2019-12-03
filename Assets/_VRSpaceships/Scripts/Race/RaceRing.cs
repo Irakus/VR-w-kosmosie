@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RaceRing : MonoBehaviour
@@ -30,9 +31,5 @@ public class RaceRing : MonoBehaviour
         return _activatedRing;
     }
 
-    IEnumerator CountDown()
-    {
-        int countdownTime = 5;
 
-    }
 }
