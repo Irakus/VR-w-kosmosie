@@ -30,7 +30,6 @@ public class RingEntryDetector : MonoBehaviour
                             other.attachedRigidbody.transform.forward, out hit, 5.0f,
                             layerMask))
         {
-            Debug.Log(hit.collider.name+ " "+ Exit.transform.name);
             if (hit.collider.name == Exit.transform.name)
             {
                 _validEntry = true;
