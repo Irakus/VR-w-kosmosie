@@ -4,35 +4,35 @@ using UnityEngine;
 
 public class RaceRing : MonoBehaviour
 {
-    
-    [SerializeField]
-    private GameObject Enter;
-    [SerializeField]
-    private GameObject Exit;
-    [SerializeField]
-    private bool _validEntry;
+    private bool _activatedRing = true;
 
-    
-    void OnTriggerExit(Collider other)
+    private RaceManager _raceManager;
+
+    [SerializeField]
+    private GameObject _triggers;
+
+    public void ActivateRing(RaceManager raceManager)
     {
-        //Debug.Log("Exit");
-        RaycastHit hit;
-        if (Debug.isDebugBuild)
-        {
-            Debug.DrawRay(other.gameObject.transform.position, other.gameObject.transform.forward * 100.0f, Color.red,10.0f);
-        }
+        _activatedRing = true;
+        _triggers.SetActive(true);
+        _raceManager = raceManager;
+    }
 
-        int layerMask = LayerMask.GetMask("RingExit");
-        if (Physics.Raycast(other.attachedRigidbody.transform.position, other.attachedRigidbody.transform.forward, out hit, 10.0f,
-        layerMask))
-        {
-            Debug.Log(hit.collider.name+ " "+ Exit.transform.name);
-            if (hit.collider.name == Exit.transform.name)
-            {
-                _validEntry = true;
-                GetComponent<RingActivator>().DeactivateRing();
-            }
-        }
+    public void DeactivateRing()
+    {
+        _activatedRing = false;
+        _triggers.SetActive(false);
+        _raceManager.NextRing();
+    }
+
+    public bool IsActivated()
+    {
+        return _activatedRing;
+    }
+
+    IEnumerator CountDown()
+    {
+        int countdownTime = 5;
 
     }
 }

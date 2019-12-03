@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4435098770525691592}
   - component: {fileID: 8797240054329941718}
   m_Layer: 0
-  m_Name: Ring12 (1)
+  m_Name: Outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4435098769509688879}
   - component: {fileID: 2912977458248048915}
   m_Layer: 0
-  m_Name: Ring2
+  m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4435098769835871964}
   - component: {fileID: 5518350459294809975}
   m_Layer: 0
-  m_Name: Ring12 (2)
+  m_Name: Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 4580015517222935745}
   - component: {fileID: 2138366864884707398}
   m_Layer: 0
-  m_Name: Enter
+  m_Name: EnterTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,12 +164,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679607431666399174}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.485}
-  m_LocalScale: {x: 5, y: 0.08, z: 5}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.31}
+  m_LocalScale: {x: 5, y: 0.080000035, z: 5}
   m_Children: []
-  m_Father: {fileID: 8716178436650291773}
-  m_RootOrder: 1
+  m_Father: {fileID: 294414964158853804}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &7965906639602017586
 MeshFilter:
@@ -259,8 +259,8 @@ Transform:
   m_Children:
   - {fileID: 1294499379}
   - {fileID: 110339681718616868}
-  m_Father: {fileID: 8716178436650291773}
-  m_RootOrder: 3
+  m_Father: {fileID: 294414964158853804}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3123820286985431930
 GameObject:
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 4155826804122937505}
   - component: {fileID: 5353539032974104516}
   m_Layer: 9
-  m_Name: Exit
+  m_Name: ExitTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,12 +288,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3123820286985431930}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -2.15}
-  m_LocalScale: {x: 9, y: 0.2, z: 9}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.7900001}
+  m_LocalScale: {x: 10, y: 0.4000002, z: 10}
   m_Children: []
-  m_Father: {fileID: 8716178436650291773}
-  m_RootOrder: 2
+  m_Father: {fileID: 294414964158853804}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &2223762468673420212
 MeshFilter:
@@ -354,6 +354,39 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &3775745480019830278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294414964158853804}
+  m_Layer: 0
+  m_Name: ActiveRing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &294414964158853804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3775745480019830278}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3361879831271561392}
+  - {fileID: 7847488207400560769}
+  - {fileID: 2787232967907924463}
+  m_Father: {fileID: 8716178436650291773}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6619079387756792134
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,9 +726,7 @@ Transform:
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 8716178437684993908}
-  - {fileID: 3361879831271561392}
-  - {fileID: 7847488207400560769}
-  - {fileID: 2787232967907924463}
+  - {fileID: 294414964158853804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -742,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df44c4747c57f9f4a95c3b4925bd382b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ringLights: {fileID: 2580741938779943940}
+  _triggers: {fileID: 3775745480019830278}
 --- !u!1 &8716178437684993909
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8716178437684993908}
   m_Layer: 0
-  m_Name: Rings
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -783,10 +814,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2787232967907924463}
     m_Modifications:
-    - target: {fileID: 100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: m_Name
-      value: Emission Ring
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -831,6 +858,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
+      propertyPath: m_Name
+      value: Emission Ring
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -844,7 +875,7 @@ PrefabInstance:
       value: 0.90171754
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
+      propertyPath: InitialModule.startColor.maxColor.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
@@ -871,9 +902,9 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 48.6
       objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 1
+    - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: InitialModule.startColor.minColor.g
@@ -884,12 +915,8 @@ PrefabInstance:
       value: 0.990566
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 35.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 8.09
+      propertyPath: InitialModule.startColor.minColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -904,16 +931,16 @@ PrefabInstance:
       value: 0.7830189
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: InitialModule.startColor.minColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: InitialModule.startColor.minColor.a
-      value: 1
+      propertyPath: InitialModule.startSize.scalar
+      value: 35.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 8.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
