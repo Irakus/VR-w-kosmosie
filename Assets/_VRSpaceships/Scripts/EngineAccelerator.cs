@@ -9,7 +9,7 @@ public class EngineAccelerator : MonoBehaviour
     private const float ENGINE_THROTTLE = 500.0f;
     private const float ROTATION_MULTIPLIER = 100.0f;
 
-    private bool _enginesWorking;
+    private bool _enginesWorking = true;
 
     [SerializeField]
     private Transform _leftEngine;
