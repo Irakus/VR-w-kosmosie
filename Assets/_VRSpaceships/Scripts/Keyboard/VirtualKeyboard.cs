@@ -18,6 +18,7 @@ public class VirtualKeyboard : MonoBehaviour
     private EventSystem _eventSystem;
     private GraphicRaycaster _raycaster;
     private RaceManager _raceManager;
+    [SerializeField] private GameObject _crosshair;
 
 
     public string nickName;
@@ -30,24 +31,30 @@ public class VirtualKeyboard : MonoBehaviour
         _raycaster = GetComponentInChildren<GraphicRaycaster>();
     }
 
+    private void OnEnable()
+    {
+        _crosshair.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        _crosshair.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        _pointerEventData = new PointerEventData(_eventSystem);
+        _pointerEventData.position = _camera.WorldToScreenPoint(_crosshair.transform.position);
+        List<RaycastResult> results = new List<RaycastResult>();
+        if (Debug.isDebugBuild)
         {
-            inputField.text += "1234321234321234321234";
-            inputField.text = inputField.text.Length <= inputField.characterLimit
-                ? inputField.text
-                : inputField.text.Substring(0, inputField.characterLimit);
-            inputField.caretPosition = inputField.text.Length;
+            Debug.DrawLine(_camera.transform.position, _camera.transform.position + _camera.transform.forward * 15.0f,
+                new Color(1.0f, 0.0f, 0.0f));
+            _raycaster.Raycast(_pointerEventData, results);
+            Debug.Log(_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0.0f)));
         }
 
-
-        _pointerEventData = new PointerEventData(_eventSystem);
-        _pointerEventData.position = _camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0.0f));
-        List<RaycastResult> results = new List<RaycastResult>();
-        Debug.DrawLine(_camera.transform.position, _camera.transform.position + _camera.transform.forward*15.0f,new Color(1.0f,0.0f,0.0f));
-        _raycaster.Raycast(_pointerEventData, results);
 
         if (results.Count == 0)
         {
