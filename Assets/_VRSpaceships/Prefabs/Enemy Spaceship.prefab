@@ -16928,8 +16928,7 @@ MonoBehaviour:
   firingCooldown: 0.115
   temperatureGain: 0.02
   temperatureCooling: 0.05
-  temperatureArrow: {fileID: 8438670117451209287, guid: ef40f8ec11a0e504b991b012470e71e8,
-    type: 3}
+  temperatureArrow: {fileID: 0}
 --- !u!1 &6747781834065441290
 GameObject:
   m_ObjectHideFlags: 0
@@ -17939,8 +17938,7 @@ MonoBehaviour:
   firingCooldown: 0.115
   temperatureGain: 0.02
   temperatureCooling: 0.05
-  temperatureArrow: {fileID: 8438670117451209287, guid: ef40f8ec11a0e504b991b012470e71e8,
-    type: 3}
+  temperatureArrow: {fileID: 0}
 --- !u!1 &6747951764339756690
 GameObject:
   m_ObjectHideFlags: 0
@@ -20995,6 +20993,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bfae7891deb93884083c47e257d2936a, type: 3}
   - {fileID: 8300000, guid: 191c89db3b5f41341915de3de1bde272, type: 3}
   hpText: {fileID: 0}
+  explosion: {fileID: 0}
 --- !u!1 &8438670117877542473
 GameObject:
   m_ObjectHideFlags: 0
@@ -21049,7 +21048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8438670118934474385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.83, y: -0.188, z: 0}
+  m_LocalPosition: {x: 2.83, y: -0.09382, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6750635346690208864}
@@ -21156,7 +21155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8438670119354869536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.83, y: -0.188, z: 0}
+  m_LocalPosition: {x: -2.83, y: -0.09382, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6750635346690208864}

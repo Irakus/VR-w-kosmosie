@@ -18,7 +18,10 @@ public class ShipDamage : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
         _lastPlayedClip = GetRandomClipIndex();
-        hpText.text = health.ToString();
+        if (hpText != null)
+        {
+            hpText.text = health.ToString();
+        }
     }
 
     private int GetRandomClipIndex()
@@ -54,7 +57,7 @@ public class ShipDamage : MonoBehaviour
     {
         var myTransform = transform;
         Instantiate(explosion, myTransform.position, myTransform.rotation);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         Destroy(transform.parent.gameObject);
     }
 }
