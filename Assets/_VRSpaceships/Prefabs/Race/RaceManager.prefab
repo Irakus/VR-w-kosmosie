@@ -48,4 +48,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  keyboard: {fileID: 0}
   _text: {fileID: 0}

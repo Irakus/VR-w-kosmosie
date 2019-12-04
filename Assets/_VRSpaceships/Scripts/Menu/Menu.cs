@@ -26,11 +26,11 @@ public class Menu : MonoBehaviour
 
     public void RaceMode()
     {
-        SceneManager.LoadScene("ShipScene");
+        SceneManager.LoadScene("TimeRace");
     }
 
     public void BattleMode()
     {
-        SceneManager.LoadScene("ShipScene");
+        SceneManager.LoadScene("Battle");
     }
 }
