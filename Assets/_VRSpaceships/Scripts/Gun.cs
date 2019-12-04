@@ -15,11 +15,13 @@ public class Gun : MonoBehaviour
     [SerializeField] private TemperatureArrow temperatureArrow;
     private bool _isTemperatureArrowNotNull;
     private AudioSource _audioSource;
+    private bool _isAudioSourceNotNull;
 
     private void Start()
     {
         _isTemperatureArrowNotNull = temperatureArrow != null;
         _audioSource = GetComponent<AudioSource>();
+        _isAudioSourceNotNull = _audioSource != null;
     }
 
     private void Update()
@@ -41,8 +43,11 @@ public class Gun : MonoBehaviour
             bullet.transform.position += transform.forward * 5;
             _cooldownTimer = firingCooldown;
             _temperature += temperatureGain;
-            _audioSource.pitch = Mathf.Lerp(0.8f, 1f, _temperature);
-            _audioSource.PlayOneShot(_audioSource.clip);
+            if (_isAudioSourceNotNull)
+            {
+                _audioSource.pitch = Mathf.Lerp(0.8f, 1f, _temperature);
+                _audioSource.PlayOneShot(_audioSource.clip);
+            }
         }
     }
 }

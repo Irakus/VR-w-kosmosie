@@ -206,19 +206,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 5.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r

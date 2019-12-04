@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8eb0fb4885a1143988294d38797113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 300
   oneDamageClips:
   - {fileID: 8300000, guid: bfae7891deb93884083c47e257d2936a, type: 3}
   - {fileID: 8300000, guid: 191c89db3b5f41341915de3de1bde272, type: 3}
@@ -29549,6 +29549,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3711705148959124356}
     m_Modifications:
+    - target: {fileID: 4809647831477071850, guid: b2d02817572a1214ebeb342d8ebba0a8,
+        type: 3}
+      propertyPath: m_Name
+      value: XBox
+      objectReference: {fileID: 0}
     - target: {fileID: 8422880158456602105, guid: b2d02817572a1214ebeb342d8ebba0a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29603,11 +29608,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4809647831477071850, guid: b2d02817572a1214ebeb342d8ebba0a8,
-        type: 3}
-      propertyPath: m_Name
-      value: XBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d02817572a1214ebeb342d8ebba0a8, type: 3}

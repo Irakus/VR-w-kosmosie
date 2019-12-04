@@ -1,12 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6ae5eeb-7279-43e5-afdd-0b5d5c4915e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ShipDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShipDamage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Enemy Spaceship.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Enemy Spaceship.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Explosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Explosion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/HitEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/HitEffect.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/VRSpaceship.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/VRSpaceship.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Scenes/Battle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Scenes/Battle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Gun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Menu/Menu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Menu/Menu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,22 +25,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scenes/Battle.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Bullet.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/EngineAccelerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C0EF81E1-639B-423A-B35C-E0E4C08B5B7A/e3/06af36df/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Race/RaceManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Gun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RandomIntervalAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Enemy Spaceship.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SpaceshipAudio.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AiInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scenes/ShipScene.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ShipDamage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0FB38736-02AD-4F16-A30D-E8CE8E1A6F6D/04/ea856317/Random.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/LightBlink.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Race/RingEntryDetector.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Settings/PostProcessProfile.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Menu/Menu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.lightweight@5.7.2/Runtime/LightweightRenderPipeline.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/BumpAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TemperatureArrow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -43,14 +56,16 @@
         <option value="$PROJECT_DIR$/Assets/RandomIntervalAudio.cs" />
         <option value="$PROJECT_DIR$/Assets/CameraInitializer.cs" />
         <option value="$PROJECT_DIR$/Assets/TemperatureArrow.cs" />
-        <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Gun.cs" />
         <option value="$PROJECT_DIR$/Assets/SpaceshipAudio.cs" />
         <option value="$PROJECT_DIR$/Assets/ShipHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/LightBlink.cs" />
         <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/PlayerInput.cs" />
         <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/EngineAccelerator.cs" />
         <option value="$PROJECT_DIR$/Assets/ShipDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Menu/Menu.cs" />
+        <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Gun.cs" />
+        <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/PlayerInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/AiInput.cs" />
       </list>
     </option>
   </component>
@@ -60,6 +75,8 @@
         <option value="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/indexLayout.xml" />
         <option value="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/indexLayout.xml" />
         <option value="$PROJECT_DIR$/.idea/.gitignore" />
+        <option value="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/projectSettingsUpdater.xml" />
       </list>
     </option>
   </component>
@@ -114,7 +131,8 @@
       <workItem from="1574678994404" duration="6804000" />
       <workItem from="1574764297559" duration="7984000" />
       <workItem from="1575314802807" duration="3671000" />
-      <workItem from="1575469407785" duration="4396000" />
+      <workItem from="1575469407785" duration="4997000" />
+      <workItem from="1575476895951" duration="11272000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Adam\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -37,6 +37,7 @@
             <e p="Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="AiInput.cs" t="Include" />
         <e p="BumpAudio.cs" t="Include" />
         <e p="HiRezSpaceshipsCreatorFree" t="Include">
           <e p="Readme.txt" t="Include" />
