@@ -20,6 +20,11 @@ public class Timer : MonoBehaviour
         _totalTime = 0.0f;
     }
 
+    public void StopTimer()
+    {
+        _isRunning = false;
+    }
+
     void Update()
     {
         if (_isRunning)
@@ -31,7 +36,6 @@ public class Timer : MonoBehaviour
 
     public float GetTime()
     {
-        _isRunning = false;
         return _totalTime; 
     }
 

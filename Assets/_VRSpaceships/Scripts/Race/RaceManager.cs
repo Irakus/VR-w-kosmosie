@@ -10,6 +10,8 @@ public class RaceManager : MonoBehaviour
     private Timer _timer;
 
     private int _currentRing;
+
+    [SerializeField] private VirtualKeyboard keyboard;
     void Start()
     {
         playerEngineAccelerator = FindObjectOfType<EngineAccelerator>();
@@ -41,9 +43,15 @@ public class RaceManager : MonoBehaviour
     private void EndRace()
     {
         playerEngineAccelerator.TurnOffEngines();
-        float raceTime = _timer.GetTime();
-        FindObjectOfType<HighScoreManager>().ShowScores(new PlayerScore("Player",raceTime));
-        return;
+        _timer.StopTimer();
+        keyboard.gameObject.SetActive(true);
+        keyboard.GetNickname(this);
+    }
+
+    public void ContinueEnding(string nickName)
+    {
+        keyboard.gameObject.SetActive(false);
+        FindObjectOfType<HighScoreManager>().ShowScores(new PlayerScore(nickName, _timer.GetTime()));
     }
 
     [SerializeField]

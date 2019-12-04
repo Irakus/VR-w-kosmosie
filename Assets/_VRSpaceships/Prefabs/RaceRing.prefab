@@ -705,8 +705,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8716178436650291773}
   - component: {fileID: 362269483}
-  - component: {fileID: 362269482}
   - component: {fileID: 362269481}
+  - component: {fileID: 7623650557563721732}
   m_Layer: 0
   m_Name: RaceRing
   m_TagString: Untagged
@@ -746,21 +746,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &362269482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8716178436650291774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081195c6afb463d48b5fbc3dd0c310d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enter: {fileID: 1679607431666399174}
-  Exit: {fileID: 3123820286985431930}
-  _validEntry: 0
 --- !u!114 &362269481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,6 +759,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggers: {fileID: 3775745480019830278}
+--- !u!114 &7623650557563721732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716178436650291774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656a1f6ee6174b74781ea9c68c22adf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enter: {fileID: 1679607431666399174}
+  Exit: {fileID: 3123820286985431930}
+  _validEntry: 0
 --- !u!1 &8716178437684993909
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2787232967907924463}
     m_Modifications:
+    - target: {fileID: 100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
+      propertyPath: m_Name
+      value: Emission Ring
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -857,10 +861,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: m_Name
-      value: Emission Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_IsActive
