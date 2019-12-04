@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6ae5eeb-7279-43e5-afdd-0b5d5c4915e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/EngineAccelerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/EngineAccelerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Race/RingEntryDetector.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Race/RingEntryDetector.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Metal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/WarFX/_Effects (Mobile)/Bullet Impacts/WFXMR_BImpact Metal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ShipDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ShipDamage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Bullet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Enemy Spaceship.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Enemy Spaceship.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/HitEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/HitEffect.prefab" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,12 +26,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Race/RaceManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Gun.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RandomIntervalAudio.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Prefabs/Enemy Spaceship.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SpaceshipAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scenes/ShipScene.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ShipDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LightBlink.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Race/RingEntryDetector.cs.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Settings/PostProcessProfile.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BumpAudio.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TemperatureArrow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -41,9 +49,9 @@
         <option value="$PROJECT_DIR$/Assets/ShipHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/LightBlink.cs" />
         <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/ShipDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/PlayerInput.cs" />
         <option value="$PROJECT_DIR$/Assets/_VRSpaceships/Scripts/EngineAccelerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/ShipDamage.cs" />
       </list>
     </option>
   </component>
@@ -52,6 +60,7 @@
       <list>
         <option value="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/indexLayout.xml" />
         <option value="$PROJECT_DIR$/.idea/.idea.vr-w-kosmosie/.idea/indexLayout.xml" />
+        <option value="$PROJECT_DIR$/.idea/.gitignore" />
       </list>
     </option>
   </component>
@@ -106,7 +115,7 @@
       <workItem from="1574678994404" duration="6804000" />
       <workItem from="1574764297559" duration="7984000" />
       <workItem from="1575314802807" duration="3671000" />
-      <workItem from="1575469407785" duration="1785000" />
+      <workItem from="1575469407785" duration="3385000" />
     </task>
     <servers />
   </component>

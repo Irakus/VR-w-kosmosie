@@ -75,7 +75,7 @@ Light:
   serializedVersion: 9
   m_Type: 2
   m_Color: {r: 0.32941177, g: 1, b: 1, a: 1}
-  m_Intensity: 30
+  m_Intensity: 40
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f5fb93f1cb7044abf04ab94e9f22ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _decayTime: 0.25
+  _decayTime: 0.6
 --- !u!1001 &8534345527706432045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206,19 +206,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 2.2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 19800002, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 1.8
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 0.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -234,7 +234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 12
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: ShapeModule.angle
@@ -254,19 +254,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 12
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
-      value: 30
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 70
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}

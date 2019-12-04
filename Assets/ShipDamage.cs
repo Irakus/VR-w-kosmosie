@@ -11,7 +11,8 @@ public class ShipDamage : MonoBehaviour
     [SerializeField] private TextMeshPro hpText;
     private AudioSource _audioSource;
     private int _lastPlayedClip;
-    
+    [SerializeField] private GameObject explosion;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -28,7 +29,15 @@ public class ShipDamage : MonoBehaviour
     public void ReceiveDamage(int damage, Vector3 hitPosition)
     {
         health -= damage;
-        hpText.text = health.ToString();
+        if (hpText != null)
+        {
+            hpText.text = health.ToString();
+        }
+        if (health <= 0)
+        {
+            StartCoroutine(GetRekt());
+            return;
+        }
         if (_audioSource != null)
         {
             transform.position = hitPosition;
@@ -37,5 +46,15 @@ public class ShipDamage : MonoBehaviour
             oneDamageClips[_lastPlayedClip] = temp;
             _audioSource.PlayOneShot(oneDamageClips[GetRandomClipIndex()]);
         }
+
+        
+    }
+
+    private IEnumerator GetRekt()
+    {
+        var myTransform = transform;
+        Instantiate(explosion, myTransform.position, myTransform.rotation);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(transform.parent.gameObject);
     }
 }
