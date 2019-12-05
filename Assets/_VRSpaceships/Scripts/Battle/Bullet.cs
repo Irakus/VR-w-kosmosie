@@ -32,7 +32,8 @@ public class Bullet : MonoBehaviour
         _hasHit = true;
         var ship = other.attachedRigidbody;
         var shipDamage = ship.GetComponentInChildren<ShipDamage>();
-        shipDamage.ReceiveDamage(this._damage, transform.position);
+        if(shipDamage != null)
+            shipDamage.ReceiveDamage(this._damage, transform.position);
         Instantiate(hitEffectPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }

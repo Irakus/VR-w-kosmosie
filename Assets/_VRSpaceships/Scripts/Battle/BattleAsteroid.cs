@@ -18,7 +18,6 @@ public class BattleAsteroid : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         var impulseMagnitude = other.impulse.magnitude;
-        Debug.Log((int)(impulseMagnitude/10));
         if (impulseMagnitude > 10f)
         {
             var rb = other.rigidbody;
@@ -27,7 +26,7 @@ public class BattleAsteroid : MonoBehaviour
                 var shipDamage = rb.GetComponentInChildren<ShipDamage>();
                 if (shipDamage != null)
                 {
-                    var damage = Mathf.Max((int) (impulseMagnitude / 10), 3);
+                    var damage = Mathf.Min((int) (impulseMagnitude / 10), 5);
                     shipDamage.ReceiveDamage(damage, transform.position);
                 }
             }
