@@ -47,14 +47,7 @@ public class VirtualKeyboard : MonoBehaviour
         _pointerEventData = new PointerEventData(_eventSystem);
         _pointerEventData.position = _camera.WorldToScreenPoint(_crosshair.transform.position);
         List<RaycastResult> results = new List<RaycastResult>();
-        if (Debug.isDebugBuild)
-        {
-            Debug.DrawLine(_camera.transform.position, _camera.transform.position + _camera.transform.forward * 15.0f,
-                new Color(1.0f, 0.0f, 0.0f));
-            _raycaster.Raycast(_pointerEventData, results);
-            Debug.Log(_camera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0.0f)));
-        }
-
+        _raycaster.Raycast(_pointerEventData, results);
 
         if (results.Count == 0)
         {

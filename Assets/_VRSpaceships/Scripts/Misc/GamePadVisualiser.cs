@@ -50,6 +50,7 @@ public class GamePadVisualiser : Visualiser
 
     public override void ChangeCameraPosition()
     {
+        if (!Application.isEditor) return;
         if (PlayerInput._controlMode == PlayerInput.ControlMode.GAMEPAD)
         {
             float vertical = Input.GetAxis(AxesDefinitions.CameraVerical);
