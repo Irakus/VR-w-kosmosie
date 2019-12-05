@@ -7,9 +7,8 @@ public class TemperatureArrow : MonoBehaviour
 {
     private Quaternion _startingRotation;
     private AudioSource _audioSource;
+    [SerializeField] private Gun gun;
 
-    public float Temperature { get; set; }
-    
     void Start()
     {
         _startingRotation = transform.localRotation;
@@ -18,9 +17,10 @@ public class TemperatureArrow : MonoBehaviour
 
     void Update()
     {
-        var targetRotationZ = Mathf.Lerp(0, 255, Temperature);
-        transform.localRotation = _startingRotation * Quaternion.Euler(new Vector3(0,0, Mathf.Lerp(0, 255, Temperature)));
-        if(Temperature>0.95f && !_audioSource.isPlaying)
+        
+        var targetRotationZ = Mathf.Lerp(0, 255, gun.Temperature);
+        transform.localRotation = _startingRotation * Quaternion.Euler(new Vector3(0,0, Mathf.Lerp(0, 255, gun.Temperature)));
+        if(gun.IsOverheated && !_audioSource.isPlaying)
             _audioSource.Play();
     }
 }

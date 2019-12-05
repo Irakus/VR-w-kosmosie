@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02e364c36f364d408aa7de23adf8992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gun: {fileID: 855891933}
 --- !u!82 &51369702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9088,9 +9089,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7520959873657133049, guid: 2bb2176519058bb4ab56ad84c9eb08b1,
     type: 3}
   firingCooldown: 0.115
-  temperatureGain: 0.03
-  temperatureCooling: 0.05
-  temperatureArrow: {fileID: 51369701}
+  temperatureGain: 0.04
+  temperatureCooling: 0.1
 --- !u!1 &2934364949837948348
 GameObject:
   m_ObjectHideFlags: 0
@@ -10099,9 +10099,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7520959873657133049, guid: 2bb2176519058bb4ab56ad84c9eb08b1,
     type: 3}
   firingCooldown: 0.115
-  temperatureGain: 0.03
-  temperatureCooling: 0.05
-  temperatureArrow: {fileID: 51369701}
+  temperatureGain: 0.04
+  temperatureCooling: 0.1
 --- !u!1 &2934488803541268348
 GameObject:
   m_ObjectHideFlags: 0
