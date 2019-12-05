@@ -12,8 +12,18 @@ public class ShipDamage : MonoBehaviour
     private AudioSource _audioSource;
     private int _lastPlayedClip;
     [SerializeField] private GameObject explosion;
+    private bool hasPlayerInput;
+    private FragCounter _fragCounter;
+    private bool _wasRekt = false;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        _fragCounter = FindObjectOfType<FragCounter>();
+        var playerInput = GetComponentInParent<PlayerInput>();        
+        hasPlayerInput = playerInput != null;
+    }
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -36,8 +46,9 @@ public class ShipDamage : MonoBehaviour
         {
             hpText.text = health.ToString();
         }
-        if (health <= 0)
+        if (health <= 0 && !_wasRekt)
         {
+            _wasRekt = true;
             StartCoroutine(GetRekt());
             return;
         }
@@ -55,6 +66,10 @@ public class ShipDamage : MonoBehaviour
 
     private IEnumerator GetRekt()
     {
+        if (!hasPlayerInput)
+        {
+            _fragCounter.Count++;
+        }
         var myTransform = transform;
         Instantiate(explosion, myTransform.position, myTransform.rotation);
         yield return new WaitForSeconds(0.3f);
