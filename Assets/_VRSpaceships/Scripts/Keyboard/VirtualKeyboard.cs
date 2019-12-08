@@ -21,8 +21,8 @@ public class VirtualKeyboard : MonoBehaviour
     [SerializeField] private GameObject _crosshair;
 
 
-    public string nickName;
-    private bool Submit = false;
+    private string nickName;
+    public bool Submit = false;
     void Start()
     {
         inputField.Select();
@@ -34,11 +34,13 @@ public class VirtualKeyboard : MonoBehaviour
     private void OnEnable()
     {
         _crosshair.SetActive(true);
+        Submit = false;
     }
 
     private void OnDisable()
     {
         _crosshair.SetActive(false);
+        Submit = false;
     }
 
     // Update is called once per frame
@@ -62,7 +64,7 @@ public class VirtualKeyboard : MonoBehaviour
                 string keyCode = key.gameObject.GetComponent<VirtualKey>().Click();
                 if (keyCode.CompareTo("Ent") == 0)
                 {
-                    _raceManager.ContinueEnding(inputField.text);
+                    nickName = inputField.text.TrimStart(' ');
                     return;
                 }
                 if (keyCode.CompareTo(ARROW_STRING) == 0)
@@ -76,6 +78,7 @@ public class VirtualKeyboard : MonoBehaviour
                 else
                 {
                     inputField.text += keyCode;
+                    inputField.text = inputField.text.TrimStart(' ').TrimEnd(' ');
                     inputField.text = inputField.text.Length <= inputField.characterLimit
                         ? inputField.text
                         : inputField.text.Substring(0, inputField.characterLimit);
@@ -86,8 +89,13 @@ public class VirtualKeyboard : MonoBehaviour
         }
     }
 
-    public void GetNickname(RaceManager raceManager)
+    public IEnumerator WaitForInput()
     {
-        _raceManager = raceManager;
+        yield return new WaitUntil(() => nickName != null);
+    }
+
+    public string GetNickname()
+    {
+        return nickName;
     }
 }

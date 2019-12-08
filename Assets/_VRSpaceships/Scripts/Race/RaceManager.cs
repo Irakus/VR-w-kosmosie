@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RaceManager : MonoBehaviour
 {
@@ -27,12 +29,20 @@ public class RaceManager : MonoBehaviour
         _timer.StartTimer();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenuScene");
+        }
+    }
+
     public void NextRing()
     {
         _currentRing += 1;
         if (_rings.Count == _currentRing)
         {
-            EndRace();
+            StartCoroutine(EndRace());
         }
         else
         {
@@ -40,18 +50,16 @@ public class RaceManager : MonoBehaviour
         }
     }
 
-    private void EndRace()
+    private IEnumerator EndRace()
     {
         playerEngineAccelerator.TurnOffEngines();
         _timer.StopTimer();
         keyboard.gameObject.SetActive(true);
-        keyboard.GetNickname(this);
-    }
-
-    public void ContinueEnding(string nickName)
-    {
+        yield return keyboard.WaitForInput();
+        string nickName = keyboard.GetNickname();
         keyboard.gameObject.SetActive(false);
         FindObjectOfType<HighScoreManager>().ShowScores(new PlayerScore(nickName, _timer.GetTime()));
+        yield return null;
     }
 
     [SerializeField]
