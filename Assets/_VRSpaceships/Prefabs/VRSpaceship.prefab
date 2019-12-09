@@ -8886,6 +8886,7 @@ GameObject:
   - component: {fileID: 1357307058}
   - component: {fileID: 1357307059}
   - component: {fileID: 1357307057}
+  - component: {fileID: 53640833}
   m_Layer: 0
   m_Name: Blaster-2
   m_TagString: Untagged
@@ -8965,7 +8966,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 0a5c2a2c6e477664d81520467c679cb3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9064,7 +9065,7 @@ AudioLowPassFilter:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.27239653
+      value: 0.31787175
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -9091,6 +9092,29 @@ MonoBehaviour:
   firingCooldown: 0.115
   temperatureGain: 0.04
   temperatureCooling: 0.1
+--- !u!164 &53640833
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934364247108748238}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -1000
+  m_DecayTime: 2.81
+  m_DecayHFRatio: 0.14
+  m_ReflectionsLevel: 429
+  m_ReverbLevel: 1023
+  m_ReverbDelay: 0.021
+  m_Diffusion: 80
+  m_Density: 60
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 22
 --- !u!1 &2934364949837948348
 GameObject:
   m_ObjectHideFlags: 0
@@ -9896,6 +9920,7 @@ GameObject:
   - component: {fileID: 855891934}
   - component: {fileID: 855891935}
   - component: {fileID: 855891933}
+  - component: {fileID: 1120383410}
   m_Layer: 0
   m_Name: Blaster-1
   m_TagString: Untagged
@@ -9975,7 +10000,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 0a5c2a2c6e477664d81520467c679cb3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10074,7 +10099,7 @@ AudioLowPassFilter:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.27239653
+      value: 0.31787175
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10101,6 +10126,29 @@ MonoBehaviour:
   firingCooldown: 0.115
   temperatureGain: 0.04
   temperatureCooling: 0.1
+--- !u!164 &1120383410
+AudioReverbFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934480646806651154}
+  m_Enabled: 1
+  m_DryLevel: 0
+  m_Room: -1000
+  m_RoomHF: -1000
+  m_DecayTime: 2.81
+  m_DecayHFRatio: 0.14
+  m_ReflectionsLevel: 429
+  m_ReverbLevel: 1023
+  m_ReverbDelay: 0.021
+  m_Diffusion: 80
+  m_Density: 60
+  m_HFReference: 5000
+  m_RoomLF: 0
+  m_LFReference: 250
+  m_ReflectionsDelay: 0
+  m_ReverbPreset: 22
 --- !u!1 &2934488803541268348
 GameObject:
   m_ObjectHideFlags: 0
@@ -30147,24 +30195,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d02817572a1214ebeb342d8ebba0a8, type: 3}
---- !u!4 &6236477841207814943 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 94791787716498109, guid: b2d02817572a1214ebeb342d8ebba0a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 6331127784332474786}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7586608271911257186 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4509690002899320256, guid: b2d02817572a1214ebeb342d8ebba0a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 6331127784332474786}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2537984881896711259 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8422880158456602105, guid: b2d02817572a1214ebeb342d8ebba0a8,
-    type: 3}
-  m_PrefabInstance: {fileID: 6331127784332474786}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8695527629150928195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3418257834811098337, guid: b2d02817572a1214ebeb342d8ebba0a8,
@@ -30180,6 +30210,24 @@ Transform:
 --- !u!4 &3395790394432068686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8718100754758411756, guid: b2d02817572a1214ebeb342d8ebba0a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6331127784332474786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6236477841207814943 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 94791787716498109, guid: b2d02817572a1214ebeb342d8ebba0a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6331127784332474786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7586608271911257186 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4509690002899320256, guid: b2d02817572a1214ebeb342d8ebba0a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6331127784332474786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2537984881896711259 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8422880158456602105, guid: b2d02817572a1214ebeb342d8ebba0a8,
     type: 3}
   m_PrefabInstance: {fileID: 6331127784332474786}
   m_PrefabAsset: {fileID: 0}
@@ -30318,12 +30366,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 853dfcc447f7f4744b293725ee3872cc, type: 3}
---- !u!20 &8189909328570299155 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2033582597, guid: 853dfcc447f7f4744b293725ee3872cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 8189909326842900758}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7471204921212810498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1587354417104618516, guid: 853dfcc447f7f4744b293725ee3872cc,
@@ -30333,6 +30375,12 @@ Transform:
 --- !u!20 &7471204921125492770 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1587354417285622068, guid: 853dfcc447f7f4744b293725ee3872cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8189909326842900758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &8189909328570299155 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2033582597, guid: 853dfcc447f7f4744b293725ee3872cc,
     type: 3}
   m_PrefabInstance: {fileID: 8189909326842900758}
   m_PrefabAsset: {fileID: 0}

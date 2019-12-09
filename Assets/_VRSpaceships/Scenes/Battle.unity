@@ -8203,8 +8203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bf5bf016d532b4e829f8a2d60bacdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textMesh: {fileID: 0}
-  timeToFade: 3
 --- !u!102 &863749541
 TextMesh:
   serializedVersion: 3
@@ -10879,8 +10877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bf5bf016d532b4e829f8a2d60bacdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textMesh: {fileID: 0}
-  timeToFade: 3
 --- !u!102 &1217955168
 TextMesh:
   serializedVersion: 3
