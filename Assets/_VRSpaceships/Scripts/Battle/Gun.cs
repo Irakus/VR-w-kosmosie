@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     private float _cooldownTimer = 0.0f;
     private AudioSource _audioSource;
     private bool _isAudioSourceNotNull;
+    public bool IsFiringAllowed { get; } = true;
     public bool IsOverheated { get; private set; }
 
     private void Start()
@@ -42,17 +43,16 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
-        if (!IsOverheated && _cooldownTimer <= 0.0f)
+        if (IsOverheated || !(_cooldownTimer <= 0.0f) || !IsFiringAllowed)
+            return;
+        var bullet = GameObject.Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.Euler(90, 0, 0), null);
+        bullet.transform.position += transform.forward * 5;
+        _cooldownTimer = firingCooldown;
+        Temperature += temperatureGain;
+        if (_isAudioSourceNotNull)
         {
-            var bullet = GameObject.Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.Euler(90, 0, 0), null);
-            bullet.transform.position += transform.forward * 5;
-            _cooldownTimer = firingCooldown;
-            Temperature += temperatureGain;
-            if (_isAudioSourceNotNull)
-            {
-                _audioSource.pitch = Mathf.Lerp(0.8f, 1f, Temperature);
-                _audioSource.PlayOneShot(_audioSource.clip);
-            }
+            _audioSource.pitch = Mathf.Lerp(0.8f, 1f, Temperature);
+            _audioSource.PlayOneShot(_audioSource.clip);
         }
     }
 }
