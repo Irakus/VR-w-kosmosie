@@ -10,7 +10,7 @@ public class HeadMovementSelector : MonoBehaviour
     private PointerEventData _pointerEventData;
     private EventSystem _eventSystem;
     private Camera _camera;
-
+    [SerializeField]
     private  GameObject _currentlySelected;
     [SerializeField]
     private Image _fillBar;
@@ -18,7 +18,7 @@ public class HeadMovementSelector : MonoBehaviour
     void Start()
     {
         _raycaster = GetComponent<GraphicRaycaster>();
-        _eventSystem = GetComponent<EventSystem>();
+        _eventSystem = FindObjectOfType<EventSystem>();
         _camera = Camera.main;
     }
 
@@ -30,17 +30,27 @@ public class HeadMovementSelector : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         _raycaster.Raycast(_pointerEventData, results);
 
-        if (results.Count == 0)
+
+        if (!results.Exists(x=>x.gameObject.GetComponent<Button>() != null))
         {
+            if (_currentlySelected != null)
+            {
+                _eventSystem.SetSelectedGameObject(null);
+            }
             _currentlySelected = null;
             _fillBar.fillAmount = 0.0f;
         }
-        else if (results[0].gameObject != _currentlySelected || !Input.GetButton("MenuButtonAccept"))
+        else if (!Input.GetButton("MenuButtonAccept"))
         {
-            _currentlySelected = results[0].gameObject;
-            _fillBar.fillAmount = 0.0f;
+            Button selectedButton = results.Find(x => x.gameObject.GetComponent<Button>() != null).gameObject.GetComponent<Button>();
+            if (selectedButton != _currentlySelected)
+            {
+                _currentlySelected = selectedButton.gameObject;
+                _eventSystem.SetSelectedGameObject(selectedButton.gameObject);
+                _fillBar.fillAmount = 0.0f;
+            }
         }
-        else
+        else if(_currentlySelected != null)
         {
             _fillBar.fillAmount += 0.5f * Time.deltaTime;
             if (_fillBar.fillAmount >= 1.0f)

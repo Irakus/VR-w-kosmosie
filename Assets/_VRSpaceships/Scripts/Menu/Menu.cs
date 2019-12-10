@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject ControlButtons;
     [SerializeField] private GameObject ModeButtons;
+    [SerializeField] private GameObject RacesButtons;
     private SpaceSceneLoader _sceneLoader;
 
     void Awake()
@@ -31,6 +32,17 @@ public class Menu : MonoBehaviour
     }
 
     public void RaceMode()
+    {
+        ModeButtons.SetActive(false);
+        RacesButtons.SetActive(true);
+    }
+
+    public void DemoRace()
+    {
+        _sceneLoader.LoadScene("TimeRaceDemo");
+    }
+
+    public void Race1()
     {
         _sceneLoader.LoadScene("TimeRace");
     }
