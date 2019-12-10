@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
     private float _cooldownTimer = 0.0f;
     private AudioSource _audioSource;
     private bool _isAudioSourceNotNull;
-    public bool IsFiringAllowed { get; } = true;
+    public bool IsFiringAllowed { get; set; } = true;
     public bool IsOverheated { get; private set; }
 
     private void Start()

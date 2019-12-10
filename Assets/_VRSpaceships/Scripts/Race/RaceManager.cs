@@ -17,6 +17,10 @@ public class RaceManager : MonoBehaviour
     {
         playerEngineAccelerator = FindObjectOfType<EngineAccelerator>();
         playerEngineAccelerator.TurnOffEngines();
+        foreach(var gun in FindObjectsOfType<Gun>())
+        {
+            gun.IsFiringAllowed = false;
+        };
         StartCoroutine(CountDown());
         _timer = FindObjectOfType<Timer>();
     }
