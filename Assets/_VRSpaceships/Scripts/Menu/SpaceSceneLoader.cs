@@ -36,7 +36,7 @@ public class SpaceSceneLoader : MonoBehaviour
                 _fillBar.fillAmount = 1.0f;
                 asyncLoad.allowSceneActivation = true;
             }
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.001f);
         }
         //yield return null;
     }
