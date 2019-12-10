@@ -5,12 +5,12 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 
 public class HighScoreManager : MonoBehaviour
 {
-    private const string SAVED_GAMES_FILENAME = "/savedRacesScores.gd";
+    private string SAVED_GAMES_FILENAME = "savedRacesScores.gd";
     private Color GOLD_COLOR = new Color(0.8018868f, 0.7000817f, 0.0f, 1.0f);
     private Color SILVER_COLOR = new Color(0.6415094f, 0.6415094f, 0.6415094f, 1.0f);
     private Color BRONZE_COLOR = new Color(0.4339623f, 0.1846895f, 0.0f, 1.0f);
@@ -60,17 +60,17 @@ public class HighScoreManager : MonoBehaviour
     private void SaveNewTopScores()
     {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + SAVED_GAMES_FILENAME);
+        FileStream file = File.Create(Application.persistentDataPath + "/" + SceneManager.GetActiveScene().name + SAVED_GAMES_FILENAME);
         bf.Serialize(file, _scores);
         file.Close();
     }
 
     private void LoadCurrentTopScores()
     {
-        if (File.Exists(Application.persistentDataPath + SAVED_GAMES_FILENAME))
+        if (File.Exists(Application.persistentDataPath +"/"+ SceneManager.GetActiveScene().name+ SAVED_GAMES_FILENAME))
         {
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + SAVED_GAMES_FILENAME, FileMode.Open);
+            FileStream file = File.Open(Application.persistentDataPath + "/" + SceneManager.GetActiveScene().name + SAVED_GAMES_FILENAME, FileMode.Open);
             _scores = (List<PlayerScore>)bf.Deserialize(file);
             file.Close();
         }

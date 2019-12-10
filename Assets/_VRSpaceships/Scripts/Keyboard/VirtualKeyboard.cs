@@ -62,7 +62,7 @@ public class VirtualKeyboard : MonoBehaviour
             {   
                 var key = results.Find(x => x.gameObject.GetComponent<VirtualKey>() != null);
                 string keyCode = key.gameObject.GetComponent<VirtualKey>().Click();
-                if (keyCode.CompareTo("Ent") == 0)
+                if (keyCode.CompareTo("Ent") == 0 && inputField.text != "")
                 {
                     nickName = inputField.text.TrimStart(' ');
                     return;

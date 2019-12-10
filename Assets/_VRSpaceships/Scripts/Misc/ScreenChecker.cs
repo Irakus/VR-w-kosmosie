@@ -12,21 +12,25 @@ public class ScreenChecker : MonoBehaviour
     [SerializeField]
     private Camera TPPCamera;
     [SerializeField]
-    private Camera SideCamera;
+    private Camera UpCamera;
+    [SerializeField]
+    private Camera BackCamera;
+
+    private bool useTPP = false;
     void Start()
     {
-
-        if (Display.displays.Length >= 2)
+        for (int i = 1; i < Display.displays.Length; i++)
         {
-            Display.displays[1].Activate();
-        }
-
-        if (!Application.isEditor && !Debug.isDebugBuild && XRDevice.isPresent)
-        {
-            
-            TPPCamera.targetDisplay = 0;
-            SideCamera.targetDisplay = 1;
+            Display.displays[i].Activate();
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            useTPP = !useTPP;
+            TPPCamera.targetDisplay = useTPP ? 0 : 7;
+        }
+    }
 }
