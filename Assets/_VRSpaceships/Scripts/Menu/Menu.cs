@@ -9,6 +9,12 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject ControlButtons;
     [SerializeField] private GameObject ModeButtons;
+    private SpaceSceneLoader _sceneLoader;
+
+    void Awake()
+    {
+        _sceneLoader = FindObjectOfType<SpaceSceneLoader>();
+    }
 
     public void WolantButton()
     {
@@ -26,11 +32,11 @@ public class Menu : MonoBehaviour
 
     public void RaceMode()
     {
-        SceneManager.LoadScene("TimeRace");
+        _sceneLoader.LoadScene("TimeRace");
     }
 
     public void BattleMode()
     {
-        SceneManager.LoadScene("Battle");
+        _sceneLoader.LoadScene("Battle");
     }
 }
