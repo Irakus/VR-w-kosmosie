@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShipDamage : MonoBehaviour
 {
     [SerializeField] private int health;
     [SerializeField] private AudioClip[] oneDamageClips;
+    [SerializeField] private AudioClip explosionClip;
     [SerializeField] private TextMeshPro hpText;
     private AudioSource _audioSource;
     private int _lastPlayedClip;
@@ -15,6 +17,8 @@ public class ShipDamage : MonoBehaviour
     private bool hasPlayerInput;
     private FragCounter _fragCounter;
     private bool _wasRekt = false;
+    private int _initialHealth;
+    private AudioSource _alertAudioSource;
 
     // Start is called before the first frame update
     private void Awake()
@@ -22,6 +26,9 @@ public class ShipDamage : MonoBehaviour
         _fragCounter = FindObjectOfType<FragCounter>();
         var playerInput = GetComponentInParent<PlayerInput>();        
         hasPlayerInput = playerInput != null;
+        _initialHealth = health;
+        if(hpText != null)
+            _alertAudioSource = hpText.transform.parent.GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -45,6 +52,10 @@ public class ShipDamage : MonoBehaviour
         if (hpText != null)
         {
             hpText.text = health.ToString();
+            if (health < _initialHealth / 4 && !_alertAudioSource.isPlaying)
+            {
+                _alertAudioSource.Play();
+            }
         }
         if (health <= 0 && !_wasRekt)
         {
@@ -66,13 +77,33 @@ public class ShipDamage : MonoBehaviour
 
     private IEnumerator GetRekt()
     {
+        var myTransform = transform;
+        Instantiate(explosion, myTransform.position, myTransform.rotation);
         if (!hasPlayerInput)
         {
             _fragCounter.Count++;
+
+            yield return new WaitForSeconds(0.3f);
+            Destroy(transform.parent.gameObject);
         }
+        else
+        {
+            StartCoroutine(PlayerDeath());
+        }
+    }
+
+    private IEnumerator PlayerDeath()
+    {
         var myTransform = transform;
-        Instantiate(explosion, myTransform.position, myTransform.rotation);
-        yield return new WaitForSeconds(0.3f);
-        Destroy(transform.parent.gameObject);
+        var bigExplosion = Instantiate(explosion, transform.parent);
+        bigExplosion.transform.localScale *= 15;
+        bigExplosion.transform.localPosition += Vector3.forward*25;
+        _alertAudioSource.Stop();
+        Time.timeScale = 0.2f;
+        _audioSource.PlayOneShot(explosionClip);
+
+        yield return new WaitForSecondsRealtime(2f);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenuScene");
     }
 }

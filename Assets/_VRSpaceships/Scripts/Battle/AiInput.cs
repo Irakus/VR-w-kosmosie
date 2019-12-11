@@ -10,7 +10,8 @@ using Random = UnityEngine.Random;
 internal enum Maneuver
 {
     Aim,
-    Evade
+    Evade,
+    TurnAround
 }
 
 public class AiInput : MonoBehaviour
@@ -31,10 +32,11 @@ public class AiInput : MonoBehaviour
     private EngineAccelerator _engineAccelerator;
     private Rigidbody _rigidbody;
 
-    private float _evadeLeftThrottle;
-    private float _evadeRightThrottle;
+    private float _maneuverLeftThrottle;
+    private float _maneuverRightThrottle;
     private float _evadeHorizontalThrottle;
     private float _evadeVerticalThrottle;
+    private float _maneuverVerticalThrottle;
 
     void Start()
     {
@@ -53,10 +55,19 @@ public class AiInput : MonoBehaviour
     private void StartEvadeManeuver()
     {
         _maneuverTimeLeft = Random.Range(evadingMinTime, evadingMaxTime);
-        _evadeLeftThrottle = Random.Range(0.6f, 1f);
-        _evadeRightThrottle = Random.Range(0.6f, 1f);
+        _maneuverLeftThrottle = Random.Range(0.6f, 1f);
+        _maneuverRightThrottle = Random.Range(0.6f, 1f);
         _evadeHorizontalThrottle = Random.Range(-1f, 1f);
         currentManeuver = Maneuver.Evade;
+    }
+    
+    private void StartTurnAroundManeuver()
+    {
+        _maneuverTimeLeft = 1.0f;
+        _maneuverLeftThrottle = Random.Range(0.3f, 0.6f);
+        _maneuverRightThrottle = Random.Range(0.3f, 0.6f);
+        _maneuverVerticalThrottle = Random.Range(0, 1)>0 ? 1 : -1 ;
+        currentManeuver = Maneuver.TurnAround;
     }
 
     void Update()
@@ -73,6 +84,13 @@ public class AiInput : MonoBehaviour
         {
             if (currentManeuver == Maneuver.Aim)
             {
+                if (posDiff.magnitude < 100f)
+                    StartTurnAroundManeuver();
+                else
+                    StartEvadeManeuver();
+            }
+            else if (currentManeuver == Maneuver.TurnAround)
+            {
                 StartEvadeManeuver();
             }
             else if (currentManeuver == Maneuver.Evade)
@@ -82,6 +100,7 @@ public class AiInput : MonoBehaviour
         }
 
     }
+
 
     private void FireUpdate()
     {
@@ -110,15 +129,26 @@ public class AiInput : MonoBehaviour
                 break;
             case Maneuver.Evade:
                 EvadeUpdate();
+                StabiliseXUpdate();
+                break;
+            case Maneuver.TurnAround:
+                TurnAroundUpdate();
                 break;
         }
         
     }
 
+    private void TurnAroundUpdate()
+    {
+        _engineAccelerator.VerticalRotationEngine(_maneuverVerticalThrottle);
+        _engineAccelerator.ThrottleLeftEngine(_maneuverLeftThrottle);        
+        _engineAccelerator.ThrottleRightEngine(_maneuverRightThrottle); 
+    }
+
     private void EvadeUpdate()
     {
-        _engineAccelerator.ThrottleLeftEngine(_evadeLeftThrottle);        
-        _engineAccelerator.ThrottleRightEngine(_evadeRightThrottle);  
+        _engineAccelerator.ThrottleLeftEngine(_maneuverLeftThrottle);        
+        _engineAccelerator.ThrottleRightEngine(_maneuverRightThrottle);  
         _engineAccelerator.HorizontalRotationEngine(_evadeHorizontalThrottle);
     }
 
@@ -152,6 +182,13 @@ public class AiInput : MonoBehaviour
         float velocityInterpolationValue = (_rigidbody.angularVelocity.z /10);
         _engineAccelerator.HorizontalRotationEngine(Mathf.Clamp(velocityInterpolationValue,-3f,3f));
     }
+    
+    private void StabiliseXUpdate()
+    {
+        float velocityInterpolationValue = (_rigidbody.angularVelocity.x /10);
+        _engineAccelerator.VerticalRotationEngine(Mathf.Clamp(velocityInterpolationValue,-3f,3f));
+    }
+
     
 
 
