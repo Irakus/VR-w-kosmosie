@@ -4563,9 +4563,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 84300cc99ddf8084ead17a08ea1b8ced, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c30a26ffb214c394eb6b14d2e6d33f55, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.35
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4573,7 +4573,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.3
+  MinDistance: 0.1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -18588,13 +18588,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 360738279, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
-      propertyPath: health
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 360738279, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
       propertyPath: explosionClip
       value: 
       objectReference: {fileID: 8300000, guid: 71c42308f65cc9340b88e27bb4cfb546, type: 3}
+    - target: {fileID: 360738279, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
+      propertyPath: health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 360738279, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
+      propertyPath: malfunctionClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 84300cc99ddf8084ead17a08ea1b8ced, type: 3}
     - target: {fileID: 302859238956664029, guid: def87279c625c3e49a8e23a3867de4d8,
         type: 3}
       propertyPath: m_Enabled

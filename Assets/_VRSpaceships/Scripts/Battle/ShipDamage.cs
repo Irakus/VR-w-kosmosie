@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class ShipDamage : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class ShipDamage : MonoBehaviour
     private bool _wasRekt = false;
     private int _initialHealth;
     private AudioSource _alertAudioSource;
+    [FormerlySerializedAs("malfunctionClip")] [SerializeField] private AudioClip alertClip;
 
     // Start is called before the first frame update
     private void Awake()
@@ -52,9 +54,10 @@ public class ShipDamage : MonoBehaviour
         if (hpText != null)
         {
             hpText.text = health.ToString();
-            if (health < _initialHealth / 4 && !_alertAudioSource.isPlaying)
+            if (health <= _initialHealth / 4 && !_alertAudioSource.isPlaying)
             {
                 _alertAudioSource.Play();
+                _alertAudioSource.PlayOneShot(alertClip, 20f);
             }
         }
         if (health <= 0 && !_wasRekt)
