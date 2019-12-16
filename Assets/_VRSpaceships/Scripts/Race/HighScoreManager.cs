@@ -14,11 +14,14 @@ public class HighScoreManager : MonoBehaviour
     private Color GOLD_COLOR = new Color(0.8018868f, 0.7000817f, 0.0f, 1.0f);
     private Color SILVER_COLOR = new Color(0.6415094f, 0.6415094f, 0.6415094f, 1.0f);
     private Color BRONZE_COLOR = new Color(0.4339623f, 0.1846895f, 0.0f, 1.0f);
+    private Color RED_COLOR = new Color(1.0f, 0.0f, 0.0f, 1.0f);
 
     [SerializeField] private GameObject graphic;
 
     [SerializeField]
-    private TextMeshProUGUI _text;
+    private Transform _scoresList;
+    [SerializeField]
+    private GameObject _scoreItem;
 
     private List<PlayerScore> _scores;
     public void ShowScores(PlayerScore newScore)
@@ -26,15 +29,38 @@ public class HighScoreManager : MonoBehaviour
         LoadCurrentTopScores();
         if (AddNewScore(newScore)) SaveNewTopScores();
         graphic.SetActive(true);
-        VisualiseScores();
+        VisualiseScores(newScore);
     }
 
-    private void VisualiseScores()
+    private void VisualiseScores(PlayerScore newScore)
     {
-        _text.text = "";
-        foreach (var score in _scores)
+        for (int i=0;i<_scores.Count;i++)
         {
-            _text.text += score.name.PadRight(14, ' ') + TimeConverter.ConvertTimeToString(score.time) + "\n";
+            var score = _scores[i];
+            var newEntry = Instantiate(_scoreItem, _scoresList);
+            var defaultPosition = newEntry.GetComponent<RectTransform>().localPosition;
+            int place = i + 1;
+            newEntry.GetComponent<RectTransform>().localPosition = new Vector3(defaultPosition.x, -i * newEntry.GetComponent<RectTransform>().rect.height, defaultPosition.z); ;
+            newEntry.GetComponentInChildren<TextMeshProUGUI>().text = (place + "# "+score.name).PadRight(18, ' ') + TimeConverter.ConvertTimeToString(score.time);
+            switch (i)
+            {
+                case 0:
+                    newEntry.GetComponentInChildren<TextMeshProUGUI>().color = GOLD_COLOR;
+                    break;
+                case 1:
+                    newEntry.GetComponentInChildren<TextMeshProUGUI>().color = SILVER_COLOR;
+                    break;
+                case 2:
+                    newEntry.GetComponentInChildren<TextMeshProUGUI>().color = BRONZE_COLOR;
+                    break;
+                default:
+                    break;
+            }
+
+            if (score.CompareTo(newScore))
+            {
+                newEntry.GetComponentInChildren<TextMeshProUGUI>().color = RED_COLOR;
+            }
         }
     }
 
@@ -91,6 +117,11 @@ public class PlayerScore
     {
         this.name = name;
         this.time = time;
+    }
+
+    public bool CompareTo(PlayerScore other)
+    {
+        return this.name.CompareTo(other.name) == 0 && this.time.CompareTo(other.time) == 0;
     }
     public string name;
     public float time;

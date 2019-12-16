@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3060135389288967659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 945416814615087961}
+  m_Layer: 5
+  m_Name: List_Of_Highscores
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &945416814615087961
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3060135389288967659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000034332275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9215930503414941489}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.040000003, y: 0.030264677}
+  m_AnchorMax: {x: 0.9513095, y: 0.80700004}
+  m_AnchoredPosition: {x: 0.02444911, y: -0.0167799}
+  m_SizeDelta: {x: -0.015403116, y: -0.01591878}
+  m_Pivot: {x: 0.5, y: 0.94366795}
 --- !u!1 &9215930501519751832
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9215930502246502673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -421,6 +456,7 @@ RectTransform:
   - {fileID: 9215930501519751833}
   - {fileID: 9215930502698235423}
   - {fileID: 9215930502246502673}
+  - {fileID: 945416814615087961}
   m_Father: {fileID: 9215930503454490991}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -535,7 +571,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphic: {fileID: 9215930503414941500}
-  _text: {fileID: 9215930502246502687}
+  _scoresList: {fileID: 945416814615087961}
+  _scoreItem: {fileID: 2478578645847625276, guid: bd6fb0d060c701b46bd2171d53b0336c,
+    type: 3}
 --- !u!1773428102 &9215930503454490992
 ParentConstraint:
   m_ObjectHideFlags: 0

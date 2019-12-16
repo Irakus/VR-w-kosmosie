@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -277,6 +277,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4952925}
   m_CullTransparentMesh: 0
+--- !u!114 &28026579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 867581557335455793, guid: 04d2e269131e33b4098a2481048b97c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1042418488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df44c4747c57f9f4a95c3b4925bd382b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &188422554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 867581557335455793, guid: 04d2e269131e33b4098a2481048b97c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 932126478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df44c4747c57f9f4a95c3b4925bd382b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &309461268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2930977760336794992, guid: def87279c625c3e49a8e23a3867de4d8,
@@ -430,20 +454,9 @@ PrefabInstance:
       propertyPath: Exit
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 362269481, guid: 04d2e269131e33b4098a2481048b97c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04d2e269131e33b4098a2481048b97c8, type: 3}
---- !u!114 &614835235 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 362269481, guid: 04d2e269131e33b4098a2481048b97c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 932126478}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df44c4747c57f9f4a95c3b4925bd382b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &680078761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,9 +780,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04d2e269131e33b4098a2481048b97c8, type: 3}
---- !u!114 &1142215551 stripped
+--- !u!114 &1189915365 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 362269481, guid: 04d2e269131e33b4098a2481048b97c8,
+  m_CorrespondingSourceObject: {fileID: 867581557335455793, guid: 04d2e269131e33b4098a2481048b97c8,
     type: 3}
   m_PrefabInstance: {fileID: 574323067}
   m_PrefabAsset: {fileID: 0}
@@ -939,18 +952,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1ab8044d7eaa124dace2f6f460ecde9, type: 3}
---- !u!114 &2051400083 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 362269481, guid: 04d2e269131e33b4098a2481048b97c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1042418488}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df44c4747c57f9f4a95c3b4925bd382b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5492961977428507279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1027,17 +1028,17 @@ PrefabInstance:
         type: 3}
       propertyPath: _rings.Array.data[0]
       value: 
-      objectReference: {fileID: 1142215551}
+      objectReference: {fileID: 1189915365}
     - target: {fileID: 5492961977517662881, guid: 553550321604dc346b087796446620a2,
         type: 3}
       propertyPath: _rings.Array.data[1]
       value: 
-      objectReference: {fileID: 2051400083}
+      objectReference: {fileID: 28026579}
     - target: {fileID: 5492961977517662881, guid: 553550321604dc346b087796446620a2,
         type: 3}
       propertyPath: _rings.Array.data[2]
       value: 
-      objectReference: {fileID: 614835235}
+      objectReference: {fileID: 188422554}
     - target: {fileID: 5492961977517662881, guid: 553550321604dc346b087796446620a2,
         type: 3}
       propertyPath: _rings.Array.data[3]
