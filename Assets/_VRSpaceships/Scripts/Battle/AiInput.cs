@@ -23,6 +23,7 @@ public class AiInput : MonoBehaviour
     [SerializeField] private Gun _gun2;
     [SerializeField] private Maneuver currentManeuver;
     [SerializeField] private float maxFiringAngle;
+    [SerializeField] private float maxFiringDistance;
     [SerializeField] private float aimingMinTime;
     [SerializeField] private float aimingMaxTime;
     [SerializeField] private float evadingMinTime;
@@ -37,6 +38,8 @@ public class AiInput : MonoBehaviour
     private float _evadeHorizontalThrottle;
     private float _evadeVerticalThrottle;
     private float _maneuverVerticalThrottle;
+    private Vector3 _posDiff;
+
 
     void Start()
     {
@@ -72,8 +75,8 @@ public class AiInput : MonoBehaviour
 
     void Update()
     {
-        var posDiff = _target.position - transform.position;
-        _angleToTarget = Quaternion.FromToRotation(transform.forward, posDiff).eulerAngles;
+        _posDiff = _target.position - transform.position;
+        _angleToTarget = Quaternion.FromToRotation(transform.forward, _posDiff).eulerAngles;
         _angleToTarget = ShortenAngle(_angleToTarget);
         FireUpdate();
 
@@ -84,7 +87,7 @@ public class AiInput : MonoBehaviour
         {
             if (currentManeuver == Maneuver.Aim)
             {
-                if (posDiff.magnitude < 100f)
+                if (_posDiff.magnitude < 100f)
                     StartTurnAroundManeuver();
                 else
                     StartEvadeManeuver();
@@ -106,7 +109,8 @@ public class AiInput : MonoBehaviour
     {
         if (Mathf.Abs(_angleToTarget.x) < maxFiringAngle &&
             Mathf.Abs(_angleToTarget.y) < maxFiringAngle &&
-            Mathf.Abs(_angleToTarget.z) < maxFiringAngle)
+            Mathf.Abs(_angleToTarget.z) < maxFiringAngle &&
+            _posDiff.magnitude < maxFiringDistance)
         {
             _gun1.Fire();
             _gun2.Fire();

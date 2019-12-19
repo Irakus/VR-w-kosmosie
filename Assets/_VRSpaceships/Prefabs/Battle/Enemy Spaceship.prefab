@@ -18683,11 +18683,12 @@ MonoBehaviour:
   _gun1: {fileID: 8438670118257300351}
   _gun2: {fileID: 8438670118745739283}
   currentManeuver: 0
-  maxFiringAngle: 15
-  aimingMinTime: 4
-  aimingMaxTime: 6
-  evadingMinTime: 1
-  evadingMaxTime: 3
+  maxFiringAngle: 25
+  maxFiringDistance: 225
+  aimingMinTime: 6
+  aimingMaxTime: 12
+  evadingMinTime: 6
+  evadingMaxTime: 8
 --- !u!1 &6748420962034205042
 GameObject:
   m_ObjectHideFlags: 0
