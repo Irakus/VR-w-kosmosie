@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float firingCooldown;
     [SerializeField] private float temperatureGain;
     [SerializeField] private float temperatureCooling;
@@ -45,8 +44,9 @@ public class Gun : MonoBehaviour
     {
         if (IsOverheated || !(_cooldownTimer <= 0.0f) || !IsFiringAllowed)
             return;
-        var bullet = GameObject.Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.Euler(90, 0, 0), null);
-        bullet.transform.position += transform.forward * 5;
+        var bullet = BulletPool.Instance.Get();
+        bullet.transform.position = transform.position + transform.forward * 5;
+        bullet.transform.rotation = transform.rotation * Quaternion.Euler(90, 0, 0);
         _cooldownTimer = firingCooldown;
         Temperature += temperatureGain;
         if (_isAudioSourceNotNull)

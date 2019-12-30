@@ -10,9 +10,14 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float velocity;
     
     private int _damage = 1;
-    private float _lifetime = 10.0f;
+    private float _lifetime;
     private bool _hasHit = false;
     [SerializeField] private GameObject hitEffectPrefab;
+
+    private void OnEnable()
+    {
+        _lifetime = 10.0f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -21,7 +26,7 @@ public class Bullet : MonoBehaviour
         transform.position += time * velocity * transform.up;
         _lifetime -= time;
         if (_lifetime < 0)
-            Destroy(gameObject);
+            BulletPool.Instance.ReturnToPool(this);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +40,6 @@ public class Bullet : MonoBehaviour
         if(shipDamage != null)
             shipDamage.ReceiveDamage(this._damage, transform.position);
         Instantiate(hitEffectPrefab, transform.position, transform.rotation);
-        Destroy(gameObject);
+        BulletPool.Instance.ReturnToPool(this);
     }
 }
