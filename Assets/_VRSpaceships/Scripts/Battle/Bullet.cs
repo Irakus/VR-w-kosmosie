@@ -7,12 +7,12 @@ using Object = UnityEngine.Object;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private GameObject hitEffectPrefab;
     [SerializeField] private float velocity;
     
     private int _damage = 1;
     private float _lifetime;
     private bool _hasHit = false;
-    [SerializeField] private GameObject hitEffectPrefab;
 
     private void OnEnable()
     {
@@ -42,4 +42,5 @@ public class Bullet : MonoBehaviour
         Instantiate(hitEffectPrefab, transform.position, transform.rotation);
         BulletPool.Instance.ReturnToPool(this);
     }
+
 }

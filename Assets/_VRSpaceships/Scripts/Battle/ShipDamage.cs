@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class ShipDamage : MonoBehaviour
 {
@@ -21,6 +23,11 @@ public class ShipDamage : MonoBehaviour
     private int _initialHealth;
     private AudioSource _alertAudioSource;
     [FormerlySerializedAs("malfunctionClip")] [SerializeField] private AudioClip alertClip;
+
+    private void OnEnable()
+    {
+        health = _initialHealth;
+    }
 
     // Start is called before the first frame update
     private void Awake()
@@ -85,9 +92,8 @@ public class ShipDamage : MonoBehaviour
         if (!hasPlayerInput)
         {
             _fragCounter.Count++;
-
             yield return new WaitForSeconds(0.3f);
-            Destroy(transform.parent.gameObject);
+            EnemySpaceshipPool.Instance.ReturnToPool(transform.parent.GetComponent<AiInput>());
         }
         else
         {

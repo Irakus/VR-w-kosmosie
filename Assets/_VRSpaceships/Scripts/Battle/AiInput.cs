@@ -40,7 +40,6 @@ public class AiInput : MonoBehaviour
     private float _maneuverVerticalThrottle;
     private Vector3 _posDiff;
 
-
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
