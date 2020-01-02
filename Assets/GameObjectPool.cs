@@ -44,7 +44,7 @@ public abstract class GameObjectPool<TPooledObject> : MonoBehaviour where TPoole
         }
     }
 
-    public void ReturnToPool(TPooledObject pooledObject)
+    public virtual void ReturnToPool(TPooledObject pooledObject)
     {
         pooledObject.gameObject.SetActive(false);
         _objects.Enqueue(pooledObject);
