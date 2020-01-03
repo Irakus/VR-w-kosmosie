@@ -14,7 +14,7 @@ public class EnemySpaceshipPool : GameObjectPool<AiInput>
     public new void ReturnToPool(AiInput pooledObject)
     {
         base.ReturnToPool(pooledObject);
-        if (_objects.Where(o=>o.gameObject.activeSelf).ToList().Count == 0)
+        if (_activeObjectAmount == 0)
         {
             BattleManager.Instance.EndWave();
         }

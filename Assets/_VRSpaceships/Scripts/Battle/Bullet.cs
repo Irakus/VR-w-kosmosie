@@ -39,7 +39,9 @@ public class Bullet : MonoBehaviour
         var shipDamage = ship.GetComponentInChildren<ShipDamage>();
         if(shipDamage != null)
             shipDamage.ReceiveDamage(this._damage, transform.position);
-        Instantiate(hitEffectPrefab, transform.position, transform.rotation);
+        var hitEffect = HitEffectPool.Instance.Get();
+        hitEffect.transform.position = transform.position;
+        hitEffect.transform.rotation = transform.rotation;
         BulletPool.Instance.ReturnToPool(this);
     }
 

@@ -10,21 +10,18 @@ public abstract class GameObjectPool<TPooledObject> : MonoBehaviour where TPoole
     [SerializeField] private int startingCapacity;
 
     protected Queue<TPooledObject> _objects = new Queue<TPooledObject>();
-
+    protected int _activeObjectAmount = 0;
     public static GameObjectPool<TPooledObject> Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
         AddObjects(startingCapacity);
     }
 
     public TPooledObject Get()
     {
+        _activeObjectAmount++;
         if (_objects.Count == 0)
         {
             AddObjects(1);
@@ -46,6 +43,7 @@ public abstract class GameObjectPool<TPooledObject> : MonoBehaviour where TPoole
 
     public virtual void ReturnToPool(TPooledObject pooledObject)
     {
+        _activeObjectAmount--;
         pooledObject.gameObject.SetActive(false);
         _objects.Enqueue(pooledObject);
     }

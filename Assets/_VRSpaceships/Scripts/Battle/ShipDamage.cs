@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 public class ShipDamage : MonoBehaviour
 {
-    [SerializeField] private int health;
+    public int Health;
     [SerializeField] private AudioClip[] oneDamageClips;
     [SerializeField] private AudioClip explosionClip;
     [SerializeField] private TextMeshPro hpText;
@@ -26,7 +26,8 @@ public class ShipDamage : MonoBehaviour
 
     private void OnEnable()
     {
-        health = _initialHealth;
+        Health = _initialHealth;
+        _wasRekt = false;
     }
 
     // Start is called before the first frame update
@@ -35,7 +36,7 @@ public class ShipDamage : MonoBehaviour
         _fragCounter = FindObjectOfType<FragCounter>();
         var playerInput = GetComponentInParent<PlayerInput>();        
         hasPlayerInput = playerInput != null;
-        _initialHealth = health;
+        _initialHealth = Health;
         if(hpText != null)
             _alertAudioSource = hpText.transform.parent.GetComponent<AudioSource>();
     }
@@ -46,7 +47,7 @@ public class ShipDamage : MonoBehaviour
         _lastPlayedClip = GetRandomClipIndex();
         if (hpText != null)
         {
-            hpText.text = health.ToString();
+            hpText.text = Health.ToString();
         }
     }
 
@@ -57,17 +58,17 @@ public class ShipDamage : MonoBehaviour
 
     public void ReceiveDamage(int damage, Vector3 hitPosition)
     {
-        health -= damage;
+        Health -= damage;
         if (hpText != null)
         {
-            hpText.text = health.ToString();
-            if (health <= _initialHealth / 4 && !_alertAudioSource.isPlaying)
+            hpText.text = Health.ToString();
+            if (Health <= _initialHealth / 4 && !_alertAudioSource.isPlaying)
             {
                 _alertAudioSource.Play();
                 _alertAudioSource.PlayOneShot(alertClip, 20f);
             }
         }
-        if (health <= 0 && !_wasRekt)
+        if (Health <= 0 && !_wasRekt)
         {
             _wasRekt = true;
             StartCoroutine(GetRekt());

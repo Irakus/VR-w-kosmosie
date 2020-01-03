@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8eb0fb4885a1143988294d38797113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  Health: 50
   oneDamageClips:
   - {fileID: 8300000, guid: bfae7891deb93884083c47e257d2936a, type: 3}
   - {fileID: 8300000, guid: 191c89db3b5f41341915de3de1bde272, type: 3}
@@ -9090,8 +9090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65521f6d3ca291e429ca41ff65e51e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7520959873657133049, guid: 2bb2176519058bb4ab56ad84c9eb08b1,
-    type: 3}
   firingCooldown: 0.115
   temperatureGain: 0.04
   temperatureCooling: 0.1
@@ -10124,8 +10122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65521f6d3ca291e429ca41ff65e51e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7520959873657133049, guid: 2bb2176519058bb4ab56ad84c9eb08b1,
-    type: 3}
   firingCooldown: 0.115
   temperatureGain: 0.04
   temperatureCooling: 0.1
@@ -30217,6 +30213,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3711705148959124356}
     m_Modifications:
+    - target: {fileID: 4809647831477071850, guid: b2d02817572a1214ebeb342d8ebba0a8,
+        type: 3}
+      propertyPath: m_Name
+      value: XBox
+      objectReference: {fileID: 0}
     - target: {fileID: 8422880158456602105, guid: b2d02817572a1214ebeb342d8ebba0a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30272,11 +30273,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4809647831477071850, guid: b2d02817572a1214ebeb342d8ebba0a8,
-        type: 3}
-      propertyPath: m_Name
-      value: XBox
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d02817572a1214ebeb342d8ebba0a8, type: 3}
 --- !u!4 &2537984881896711259 stripped
@@ -30322,6 +30318,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2932756879040297154}
     m_Modifications:
+    - target: {fileID: 1587354417104618517, guid: 853dfcc447f7f4744b293725ee3872cc,
+        type: 3}
+      propertyPath: m_Name
+      value: ThirdPersonAdditionalCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 1587354417104618516, guid: 853dfcc447f7f4744b293725ee3872cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30376,11 +30377,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1587354417104618517, guid: 853dfcc447f7f4744b293725ee3872cc,
-        type: 3}
-      propertyPath: m_Name
-      value: ThirdPersonAdditionalCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 853dfcc447f7f4744b293725ee3872cc, type: 3}

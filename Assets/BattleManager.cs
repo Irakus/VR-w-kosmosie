@@ -3,18 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BattleManager : MonoBehaviour
 {
     [SerializeField] private float minSpawnDistance;
     [SerializeField] private float maxSpawnDistance;
-    private int _waveNumber;
-    
+    private int _waveNumber = 1;
+    [SerializeField] private TextMesh waveNumberText;
+
     public static BattleManager Instance { get; private set; }
 
     public void EndWave()
     {
-        StartWave(++_waveNumber);
+        StartRound(++_waveNumber);
+        waveNumberText.text = _waveNumber.ToString();
     }
     
     private void OnDrawGizmosSelected()
@@ -35,15 +38,35 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartWave(1);
+        StartRound(1);
     }
     
-    private void StartWave(int number)
+    private void StartRound(int roundNumber)
     {
-        for (int i = 0; i < number; i++)
+        int enemyHealth = 1 + roundNumber;
+        int enemyNumber = (roundNumber / 3)*5 + (roundNumber % 3);
+        Debug.Log($"Spawning {enemyNumber} enemies with {enemyHealth} HP each");
+        for (int i = 0; i < enemyNumber; i++)
         {
-            var enemy = EnemySpaceshipPool.Instance.Get();
-            enemy.transform.position = transform.position + transform.forward * 10;
+            SpawnEnemy(enemyHealth);
         }
     }
+
+    private void SpawnEnemy(int health)
+    {
+        var enemy = EnemySpaceshipPool.Instance.Get();
+        enemy.GetComponentInChildren<ShipDamage>().Health = health;
+        var spawnOffset = GenerateSpawnOffset();
+        var parentTransform = transform.parent;
+        enemy.transform.position = parentTransform.position + spawnOffset;
+        enemy.transform.LookAt(parentTransform);
+    }
+
+    private Vector3 GenerateSpawnOffset()
+    {
+        var distanceVector = Random.Range(minSpawnDistance, maxSpawnDistance) * Vector3.forward;
+        var rotation = Random.rotationUniform;
+        return rotation * distanceVector;
+    }
+    
 }
