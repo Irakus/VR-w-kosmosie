@@ -40,6 +40,18 @@ public class RaceManager : MonoBehaviour
         }
     }
 
+    public Transform GetCurrentRingPosition()
+    {
+        if(_currentRing == _rings.Count)
+        {
+            return null;
+        }
+        else
+        {
+            return _rings[_currentRing].transform;
+        }
+    }
+
     public void NextRing()
     {
         _currentRing += 1;
