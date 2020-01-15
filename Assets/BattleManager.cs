@@ -43,8 +43,8 @@ public class BattleManager : MonoBehaviour
     
     private void StartRound(int roundNumber)
     {
-        int enemyHealth = 1 + roundNumber;
-        int enemyNumber = (roundNumber / 3)*5 + (roundNumber % 3);
+        int enemyHealth = roundNumber;
+        int enemyNumber = (roundNumber/3)*4 + (roundNumber%3);
         Debug.Log($"Spawning {enemyNumber} enemies with {enemyHealth} HP each");
         for (int i = 0; i < enemyNumber; i++)
         {

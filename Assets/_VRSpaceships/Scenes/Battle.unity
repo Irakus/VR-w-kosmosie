@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -15268,7 +15268,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625480732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.05394327, y: 0.84655845, z: 1.0220875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19561,6 +19561,14 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 360738279, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
+      propertyPath: Health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 360738279, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
+      propertyPath: keyboard
+      value: 
+      objectReference: {fileID: 457851829250383406}
     - target: {fileID: 1357307058, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
       propertyPath: m_Volume
       value: 0.3
@@ -19571,6 +19579,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def87279c625c3e49a8e23a3867de4d8, type: 3}
+--- !u!114 &457851829250383406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7757508394934638609, guid: def87279c625c3e49a8e23a3867de4d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 457851829250383405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f17163cf4d96dd4a996c612babacd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2331961864027691454
 PrefabInstance:
   m_ObjectHideFlags: 0

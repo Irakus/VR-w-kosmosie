@@ -23,6 +23,7 @@ public class ShipDamage : MonoBehaviour
     private int _initialHealth;
     private AudioSource _alertAudioSource;
     [FormerlySerializedAs("malfunctionClip")] [SerializeField] private AudioClip alertClip;
+    [SerializeField] private VirtualKeyboard keyboard;
 
     private void OnEnable()
     {
@@ -111,9 +112,12 @@ public class ShipDamage : MonoBehaviour
         _alertAudioSource.Stop();
         Time.timeScale = 0.2f;
         _audioSource.PlayOneShot(explosionClip);
-
         yield return new WaitForSecondsRealtime(2f);
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenuScene");
+        keyboard.gameObject.SetActive(true);
+        yield return keyboard.WaitForInput();
+        string nickName = keyboard.GetNickname();
+        keyboard.gameObject.SetActive(false);
+        FindObjectOfType<HighScoreManager>().ShowScores(new PlayerScore(nickName, _fragCounter.Count));
+        yield return null;
     }
 }
