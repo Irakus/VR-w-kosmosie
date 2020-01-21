@@ -110,8 +110,27 @@ public class ShipDamage : MonoBehaviour
         bigExplosion.transform.localScale *= 15;
         bigExplosion.transform.localPosition += Vector3.forward*25;
         _alertAudioSource.Stop();
-        Time.timeScale = 0.2f;
         _audioSource.PlayOneShot(explosionClip);
+
+        var guns = transform.parent.GetComponentsInChildren<Gun>();
+
+        foreach (var gun in guns)
+        {
+            gun.IsFiringAllowed = false;
+        }
+        
+        var engines = FindObjectsOfType<EngineAccelerator>();
+        foreach (var engine in engines)
+        {
+            engine.TurnOffEngines();
+        }
+
+        var enemies = FindObjectsOfType<AiInput>();
+        foreach (var enemy in enemies)
+        {
+            enemy.enabled = false;
+        }
+            
         yield return new WaitForSecondsRealtime(2f);
         keyboard.gameObject.SetActive(true);
         yield return keyboard.WaitForInput();
@@ -119,5 +138,6 @@ public class ShipDamage : MonoBehaviour
         keyboard.gameObject.SetActive(false);
         FindObjectOfType<HighScoreManager>().ShowScores(new PlayerScore(nickName, _fragCounter.Count));
         yield return null;
+        
     }
 }
