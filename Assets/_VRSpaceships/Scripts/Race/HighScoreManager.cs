@@ -15,8 +15,7 @@ public class HighScoreManager : MonoBehaviour
     private Color SILVER_COLOR = new Color(0.6415094f, 0.6415094f, 0.6415094f, 1.0f);
     private Color BRONZE_COLOR = new Color(0.4339623f, 0.1846895f, 0.0f, 1.0f);
     private Color RED_COLOR = new Color(1.0f, 0.0f, 0.0f, 1.0f);
-    [SerializeField] private bool isBattle = false; 
-    
+
     [SerializeField] private GameObject graphic;
 
     [SerializeField]
@@ -42,8 +41,7 @@ public class HighScoreManager : MonoBehaviour
             var defaultPosition = newEntry.GetComponent<RectTransform>().localPosition;
             int place = i + 1;
             newEntry.GetComponent<RectTransform>().localPosition = new Vector3(defaultPosition.x, -i * newEntry.GetComponent<RectTransform>().rect.height, defaultPosition.z); ;
-            var scoreValue = isBattle ? score.time.ToString() : TimeConverter.ConvertTimeToString(score.time);
-            newEntry.GetComponentInChildren<TextMeshProUGUI>().text = (place + "# "+score.name).PadRight(18, ' ') + scoreValue;
+            newEntry.GetComponentInChildren<TextMeshProUGUI>().text = (place + "# "+score.name).PadRight(18, ' ') + TimeConverter.ConvertTimeToString(score.time);
             switch (i)
             {
                 case 0:
@@ -63,6 +61,7 @@ public class HighScoreManager : MonoBehaviour
             {
                 newEntry.GetComponentInChildren<TextMeshProUGUI>().color = RED_COLOR;
             }
+            
         }
     }
 

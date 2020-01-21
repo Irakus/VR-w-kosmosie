@@ -136,7 +136,7 @@ public class ShipDamage : MonoBehaviour
         yield return keyboard.WaitForInput();
         string nickName = keyboard.GetNickname();
         keyboard.gameObject.SetActive(false);
-        FindObjectOfType<HighScoreManager>().ShowScores(new PlayerScore(nickName, _fragCounter.Count));
+        FindObjectOfType<BattleHighScoreManager>().ShowScores(new BattlePlayerScore(nickName, _fragCounter.Count));
         yield return null;
         
     }

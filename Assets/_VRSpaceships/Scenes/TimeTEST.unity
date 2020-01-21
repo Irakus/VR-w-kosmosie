@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -277,6 +277,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4952925}
   m_CullTransparentMesh: 0
+--- !u!1 &136486470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3775745480019830278, guid: 04d2e269131e33b4098a2481048b97c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 574323067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &285482518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8716178436650291774, guid: 04d2e269131e33b4098a2481048b97c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 574323067}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &285482519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285482518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081195c6afb463d48b5fbc3dd0c310d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggers: {fileID: 136486470}
 --- !u!4 &309461268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2930977760336794992, guid: def87279c625c3e49a8e23a3867de4d8,
@@ -430,20 +455,9 @@ PrefabInstance:
       propertyPath: Exit
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9200721202938252634, guid: 04d2e269131e33b4098a2481048b97c8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04d2e269131e33b4098a2481048b97c8, type: 3}
---- !u!114 &574323068 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9200721202938252634, guid: 04d2e269131e33b4098a2481048b97c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 574323067}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df44c4747c57f9f4a95c3b4925bd382b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &680078761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -841,7 +855,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _rings.Array.data[0]
       value: 
-      objectReference: {fileID: 574323068}
+      objectReference: {fileID: 285482519}
     - target: {fileID: 5492961977517662881, guid: 553550321604dc346b087796446620a2,
         type: 3}
       propertyPath: _rings.Array.data[1]
