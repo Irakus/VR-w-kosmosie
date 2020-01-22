@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class BattleManager : MonoBehaviour
@@ -39,6 +40,14 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         StartRound(1);
+    }
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenuScene");
+        }
     }
     
     private void StartRound(int roundNumber)
