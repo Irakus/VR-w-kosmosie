@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 8716178436650291773}
   - component: {fileID: 362269483}
   - component: {fileID: 7623650557563721732}
-  - component: {fileID: 9200721202938252634}
+  - component: {fileID: 2637220659087981130}
   m_Layer: 0
   m_Name: RaceRing
   m_TagString: Untagged
@@ -948,7 +948,7 @@ MonoBehaviour:
   Enter: {fileID: 1679607431666399174}
   Exit: {fileID: 3123820286985431930}
   _validEntry: 0
---- !u!114 &9200721202938252634
+--- !u!114 &2637220659087981130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -957,7 +957,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8716178436650291774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df44c4747c57f9f4a95c3b4925bd382b, type: 3}
+  m_Script: {fileID: 11500000, guid: 081195c6afb463d48b5fbc3dd0c310d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _triggers: {fileID: 3775745480019830278}
@@ -1001,6 +1001,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2787232967907924463}
     m_Modifications:
+    - target: {fileID: 100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
+      propertyPath: m_Name
+      value: Emission Ring
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1044,10 +1048,6 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
-      propertyPath: m_Name
-      value: Emission Ring
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
       propertyPath: m_IsActive
