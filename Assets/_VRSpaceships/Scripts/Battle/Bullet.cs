@@ -12,11 +12,12 @@ public class Bullet : MonoBehaviour
     
     private int _damage = 1;
     private float _lifetime;
-    private bool _hasHit = false;
+    private bool _hasHit;
 
     private void OnEnable()
     {
         _lifetime = 10.0f;
+        _hasHit = false;
     }
 
     // Update is called once per frame

@@ -45,6 +45,10 @@ public class AiInput : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _engineAccelerator = GetComponent<EngineAccelerator>();
         _target = FindObjectOfType<PlayerInput>().transform;
+    }
+
+    private void OnEnable()
+    {
         StartEvadeManeuver();
     }
 
